@@ -1,0 +1,16 @@
+\BOOKMARK [0][-]{chapter*.2}{Cel pracy}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Wstep}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Leptony tau}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Detektor CMS}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Sieci neuronowe}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.3.1}{Funkcje aktywacji}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{Warstwa batch normalization}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.3}{Optymalizacja Adam}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.4}{Miary skutecznosci modeli}{section.1.3}% 9
+\BOOKMARK [1][-]{section.1.4}{XGBoost}{chapter.1}% 10
+\BOOKMARK [0][-]{chapter.2}{Dane eksperymentalne}{}% 11
+\BOOKMARK [0][-]{chapter.3}{Metodologia}{}% 12
+\BOOKMARK [0][-]{chapter.4}{Wyniki}{}% 13
+\BOOKMARK [0][-]{chapter.5}{Dyskusja}{}% 14
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 15
+\BOOKMARK [0][-]{chapter.6}{Bibliografia}{}% 16

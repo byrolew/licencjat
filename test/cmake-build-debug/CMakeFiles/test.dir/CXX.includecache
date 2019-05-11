@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aga/Fizyka/licencjat/test/main.cpp
+iostream
+-
+fdeep/fdeep.hpp
+-
+xgboost_whole_data.cpp
+/home/aga/Fizyka/licencjat/test/xgboost_whole_data.cpp
+xgboost_without_disc.cpp
+/home/aga/Fizyka/licencjat/test/xgboost_without_disc.cpp
+xgboost_without_byCombined.cpp
+/home/aga/Fizyka/licencjat/test/xgboost_without_byCombined.cpp
+
+/home/aga/Fizyka/licencjat/test/xgboost_whole_data.cpp
+iostream
+-
+fstream
+-
+vector
+-
+
+/home/aga/Fizyka/licencjat/test/xgboost_without_byCombined.cpp
+iostream
+-
+fstream
+-
+vector
+-
+
+/home/aga/Fizyka/licencjat/test/xgboost_without_disc.cpp
+iostream
+-
+fstream
+-
+vector
+-
+

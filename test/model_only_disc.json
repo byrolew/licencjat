@@ -1,0 +1,144 @@
+{
+  "architecture": {
+    "backend": "tensorflow",
+    "class_name": "Model",
+    "config": {
+      "input_layers": [
+        [
+          "input_2",
+          0,
+          0
+        ]
+      ],
+      "layers": [
+        {
+          "class_name": "InputLayer",
+          "config": {
+            "batch_input_shape": [
+              null,
+              4
+            ],
+            "dtype": "float32",
+            "name": "input_2",
+            "sparse": false
+          },
+          "inbound_nodes": [],
+          "name": "input_2"
+        },
+        {
+          "class_name": "Dense",
+          "config": {
+            "activation": "sigmoid",
+            "activity_regularizer": null,
+            "bias_constraint": null,
+            "bias_initializer": {
+              "class_name": "Zeros",
+              "config": {}
+            },
+            "bias_regularizer": null,
+            "kernel_constraint": null,
+            "kernel_initializer": {
+              "class_name": "VarianceScaling",
+              "config": {
+                "distribution": "uniform",
+                "mode": "fan_avg",
+                "scale": 1.0,
+                "seed": null
+              }
+            },
+            "kernel_regularizer": null,
+            "name": "dense_2",
+            "trainable": true,
+            "units": 1,
+            "use_bias": true
+          },
+          "inbound_nodes": [
+            [
+              [
+                "input_2",
+                0,
+                0,
+                {}
+              ]
+            ]
+          ],
+          "name": "dense_2"
+        }
+      ],
+      "name": "model_2",
+      "output_layers": [
+        [
+          "dense_2",
+          0,
+          0
+        ]
+      ]
+    },
+    "keras_version": "2.2.4"
+  },
+  "average_pooling_2d_same_offset": false,
+  "average_pooling_2d_valid_offset": false,
+  "conv2d_same_offset_depth_1": false,
+  "conv2d_same_offset_depth_2": false,
+  "conv2d_valid_offset_depth_1": false,
+  "conv2d_valid_offset_depth_2": false,
+  "hash": "2dd47b0ee88cfcec3444cae596b60f8f07b9b17ee1ddd6f05cbf601597a5c563",
+  "image_data_format": "channels_last",
+  "input_shapes": [
+    [
+      1,
+      1,
+      1,
+      1,
+      4
+    ]
+  ],
+  "max_pooling_2d_same_offset": false,
+  "max_pooling_2d_valid_offset": false,
+  "separable_conv2d_same_offset_depth_1": false,
+  "separable_conv2d_same_offset_depth_2": false,
+  "separable_conv2d_valid_offset_depth_1": false,
+  "separable_conv2d_valid_offset_depth_2": false,
+  "tests": [
+    {
+      "inputs": [
+        {
+          "shape": [
+            1,
+            1,
+            1,
+            1,
+            4
+          ],
+          "values": [
+            "y0KXvzuugT+ut14/VI9COw=="
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "shape": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "values": [
+            "kSoBPQ=="
+          ]
+        }
+      ]
+    }
+  ],
+  "trainable_params": {
+    "dense_2": {
+      "bias": [
+        "hBcywA=="
+      ],
+      "weights": [
+        "9pBtQETbK0BN1ZU/XJf1Pw=="
+      ]
+    }
+  }
+}

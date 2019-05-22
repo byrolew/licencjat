@@ -1,10 +1,26 @@
+import os
+import random as rn
+
 import numpy as np
+import tensorflow as tf
+from keras import backend as K
 from keras.models import Input, Model
 from keras.optimizers import Adam
 from keras.losses import binary_crossentropy
 from sklearn.metrics import roc_auc_score, accuracy_score
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
+
+
+def set_seed_global(random_seed):
+    os.environ['PYTHONHASHSEED'] = '0'
+    np.random.seed(random_seed)
+    rn.seed(random_seed)
+    session_conf = tf.ConfigProto(intra_op_parallelism_threads=1,
+                                  inter_op_parallelism_threads=1)
+    tf.set_random_seed(random_seed)
+    sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
+    K.set_session(sess)
 
 
 def train_keras_model(features, labels, layers, model_name, scheduler=(), lr=0.001,

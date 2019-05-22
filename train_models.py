@@ -1,29 +1,18 @@
-import os
 from copy import deepcopy
 
-import numpy as np
-import tensorflow as tf
-import random as rn
 from keras.layers import Dense, BatchNormalization
 from keras.activations import relu, sigmoid
 from keras.callbacks import ReduceLROnPlateau
-from keras import backend as K
 
 from preprocess import preprocess
-from model_utils import train_keras_model, train_xgb, save_keras_model, save_xgb_model
-
-random_seed = 12345
-os.environ['PYTHONHASHSEED'] = '0'
-np.random.seed(random_seed)
-rn.seed(random_seed)
-session_conf = tf.ConfigProto(intra_op_parallelism_threads=1,
-                              inter_op_parallelism_threads=1)
-tf.set_random_seed(random_seed)
-sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
-K.set_session(sess)
+from model_utils import train_keras_model, train_xgb, save_keras_model, save_xgb_model, \
+    set_seed_global
 
 
 if __name__ == "__main__":
+
+    random_seed = 12345
+    set_seed_global(random_seed)
 
     file_name = '/home/aga/Fizyka/licencjat/htt_features_test.pkl'
 

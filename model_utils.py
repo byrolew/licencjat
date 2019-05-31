@@ -11,6 +11,8 @@ from sklearn.metrics import roc_auc_score, accuracy_score
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
+from logger import logger
+
 
 def set_seed_global(random_seed):
     os.environ['PYTHONHASHSEED'] = '0'
@@ -40,9 +42,12 @@ def train_keras_model(features, labels, layers, model_name, scheduler=(), lr=0.0
     return model
 
 
+def split(features, labels, random_seed):
+    return train_test_split(features, labels, random_state=random_seed)
+
+
 def train_xgb(features, labels, model_name, random_seed=None):
-    X_train, X_test, y_train, y_test = train_test_split(features, labels,
-                                                        random_state=random_seed)
+    X_train, X_test, y_train, y_test = split(features, labels, random_seed)
 
     model = XGBClassifier(objective="multi:softprob", num_class=2, seed=random_seed)
     model.fit(X_train, y_train)
@@ -72,8 +77,13 @@ def save_xgb_model(model, data_dict, model_name):
 def print_results(true, pred, model_name, is_test):
     name = model_name
     if is_test:
-        name += " test"
+        name += ", test"
     else:
-        name += " whole"
-    print(name + " accuracy", accuracy_score(true, pred > 0.5))
-    print(name + " ROC AUC", roc_auc_score(true, pred))
+        name += ", whole"
+    res_acc = name + " accuracy " + str(accuracy_score(true, pred > 0.5))
+    res_auc = name + " ROC AUC " + str(roc_auc_score(true, pred))
+    with open("results.txt", "a") as f:
+        f.write(name + ',' + str(roc_auc_score(true, pred)))
+        f.write("\n")
+    logger.info(res_acc)
+    logger.info(res_auc)

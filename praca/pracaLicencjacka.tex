@@ -73,6 +73,7 @@ $>$
     \addcontentsline{toc}{chapter}{Cel pracy}
     %TODO
     \chapter{Wstęp}
+    \label{ch:wstep}
 	%TODO    
     Tutaj piszemy informacje wprowadzające w tematykę  pracy, potrzebne do zrozumienia treści.       
     \section{Leptony tau}
@@ -157,6 +158,8 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 {\displaystyle {\hat {m}}_{w}={\frac {m_{w}^{(n+1)}}{1-(\beta _{1})^{t+1}}}}$$$$ {\displaystyle {\hat {v}}_{w}={\frac {v_{w}^{(n+1)}}{1-(\beta _{2})^{t+1}}}}$$$$
 {\displaystyle w^{(n+1)}\leftarrow w^{(n)}-\gamma {\frac {{\hat {m}}_{w}}{{\sqrt {{\hat {v}}_{w}}}+\epsilon }}}$$ gdzie $\beta_1, \beta_2$ to parametry, a $\epsilon$ to epsilon numeryczny.
 	
+	\subsection{TODO: callback}
+	
 	\subsection{Miary skuteczności modeli}
 	Jako, że identyfikacja taonów to problem klasyfikacji binarnej, dobrą metryką do mierzenia skuteczności modelu jest ROC AUC (\textit{Area Under Receiver Operating Characteristic Curve}) oraz sama krzywa ROC. Analizowany model przewiduje prawdopodobieństwo, czy dany rozpad zawiera taon. Aby dokonać klasyfikacji musimy ustalić próg odcięcia ponad którym zawsze zwracane jest 1 (wystąpił taon), a poniżej 0 (nie wystąpił). Wówczas można policzyć \textit{true positive rate} (TPR) oraz \textit{false positive rate} (FPR). Krzywa ROC to wykres TPR od FPR dla różnych progów odcięcie.
 	
@@ -174,9 +177,139 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 	\label{fig:tree}
 	\end{figure}
 	
-    \chapter{Dane eksperymentalne}    
-    \chapter{Metodologia}
+    \chapter{Dane eksperymentalne oraz symulacyjne}
+    \label{ch:dane}
+    Dane eksperymentalne pochodzą ze zderzeń pp z eksperymentu CMS. %TODO energia i rok?
+Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne informacje. Dzięki temu otrzymane dane mają 19 zmiennych objaśniających:
+	\begin{itemize}
+	\item \textbf{leg\_2\_byCombinedIsolationDeltaBetaCorrRaw3Hits} - Tutaj wyjaśnienie co to za zmienna
+	\item \textbf{leg\_2\_chargedIsoPtSum}
+	\item \textbf{leg\_2\_decayDistMag}
+	\item \textbf{leg\_2\_decayMode}
+	\item \textbf{leg\_2\_dxy}
+	\item \textbf{leg\_2\_dxy\_Sig}
+	\item \textbf{leg\_2\_eRatio}
+	\item \textbf{leg\_2\_flightLengthSig}
+	\item \textbf{leg\_2\_gjAngleDiff}
+	\item \textbf{leg\_2\_hasSecondaryVertex}
+	\item \textbf{leg\_2\_ip3d}
+	\item \textbf{leg\_2\_nPhoton}
+	\item \textbf{leg\_2\_neutralIsoPtSum}
+	\item \textbf{leg\_2\_photonPtSumOutsideSignalCone}
+	\item \textbf{leg\_2\_ptWeightedDetaStrip}
+	\item \textbf{leg\_2\_ptWeightedDphiStrip}
+	\item \textbf{leg\_2\_ptWeightedDrIsolation}
+	\item \textbf{leg\_2\_ptWeightedDrSignal}
+	\item \textbf{leg\_2\_puCorrPtSum}
+	\end{itemize}
+	
+	Dodatkowo dane zawierają 4 zmienne będące odpowiedziami wcześniej wykorzystywanych klayfikatorów:
+	\begin{itemize}
+	\item \textbf{leg\_2\_DPFTau\_2016\_v1tauVSall}
+	\item \textbf{leg\_2\_byIsolationMVArun2v1DBnewDMwLTraw2017v2}
+	\item \textbf{leg\_2\_deepTau2017v1tauVSall}
+	\item \textbf{leg\_2\_deepTau2017v1tauVSjet}
+	\end{itemize}
+	
+	Jednakże dane eksperymentalne nie dostarczają informacji o wystąpieniu taonu. Dlatego do treningu modeli użyte zostały dane symulacyjne wytworzone metodami Monte Carlo. Dane te zawierają takie same zmienne objaśniające jak dane eksperymentalne, jednak występuje tam również zmienna objaśniana, czyli informacja binarna o wystąpieniu taonu (1 jeśli taon wystąpił (sygnał), 0 jeśli nie wystąpił (tło)).
+	
+	Symulowane są rozpady H $\rightarrow\tau\tau$, Z$'\rightarrow ll$, W$'\rightarrow l\nu$ i Z/$\gamma* \rightarrow ll$, gdzie $l$ może odpowiadać każdemu z leptonów \cite{tauid13}. Na rysunku \ref{fig:diff} przedstawiono rozkład przykładowej zmiennej dla sygnału oraz tła. Widać zauważalne różnice w rozkładach, także można na podstawie tej zmiennej dokonywać klasyfikacji. Rozkłady częściowo się nakładają, więc klasyfikacja nie byłaby idealna.
+	
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{difference.png}
+	\caption{Różnice w rozkładzie przykładowej zmiennej dla sygnału i tła}
+	\label{fig:diff}
+	\end{figure}
+		
+	Niestety można zauważyć również różnice między danymi symulacyjnymi a danymi eksperymentalnymi w rozkładach zmiennych objaśniających, także nie ma pewności, że model dający dobre wyniki na danych symulacyjnych będzie dawał równie dobre wyniki na danych eksperymentalnych.		
+		
+    \chapter{Metodologia (architektura?) TODO}
+	Aby dokonywać klasyfikacji sygnału zastosowano różne modele predykcyjne opierające się na metodach opisanych w rozdziale \ref{ch:wstep}.
+	\section{Model oparty o same klasyfikatory}
+	\label{sec:mod1}
+	Prosty model, składający się z jednego neuronu, który przyjmuje jako zmienne objaśniające odpowiedzi wcześniej używanych klasfikatorów (patrz rozdział \ref{ch:dane}). Jest to średnia ważona odpowiedzi klasyfikatorów na którą nałożona jest funkcja sigmoid. Wielkość batcha została ustalona na 128, do optymalizacji został użyty algorytm \textit{Adam} ze stałą uczenia $\gamma = 10^{-3}$. Model uczony był przez cztery epoki (cztery razy przetwarzał każdą obserwację).
+	\section{Sieć neuronowa TODO: zmienić nazwę}
+	\label{sec:mod2}
+	Kolejny model był oparty o wszystkie dane, jego architekturę przedstawiono na rysunku \ref{fig:nn1}. Składa się z sześciu warstw gęstych, o wielkości 32 neuronów każda. Jako funkcje aktywacji zastosowano funkcje ReLU. Inne parametry zostały ustalone tak samo jak dla modelu w sekcji \ref{sec:mod1}. Ten model zwany jest później \textit{Stara sieć}.
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{neural_net.pdf}
+	\caption{TODO}
+	\label{fig:nn1}
+	\end{figure}
+	
+	\section{Poprawiona sieć neuronowa TODO: zmienić nazwę}
+	Na postawie optymalizacji hiperparametrów przy pomocy losowego przeszukiwania został wybrany najlepszy model oparty o gęste sieci neuronowe. Optymalizowano parametry takie jak: wielkość batcha, stała uczenia, wielkość i liczba warstw ukrytych, funkcja aktywacji, liczba epok, występowanie warstwy \textit{batch normalization} i występowanie callbacka %TODO nazwa
+	. Otrzymana architektura znajduje się na rysunku \ref{fig:nn2}. 
+	
+	Wybrany model ma dwie warstwy gęste po 256 neuronów każda, zatem widać że model jest płytszy i szerszy niż opisany w sekcji \ref{sec:mod2}. Jako funkcja aktywacji jest tutaj użyty sigmoid, a dodatkowo zastosowana jest warstwa \textit{batch normalization}. Użyta wielkość batcha to 256, do optymalizacji  zastosowano algorytm \textit{Adam} ze stałą uczenia $\gamma = 5\cdot 10^{-4}$ oraz callbackiem %TODO nazwa
+	zmniejszającym stałą uczenia $\gamma$ na wypłaszczeniu %TODO czego? 
+	przez czynnik 0.2 do minimalnej wartości $\gamma = 10^{-5}$. Moodel był uczony przez sześć epok. Ten model zwany jest później \textit{Nowa sieć}.
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{best_neural_net.pdf}
+	\caption{TODO}
+	\label{fig:nn2}
+	\end{figure}	
+	
+	\section{XGBoost}
+	Model oparty na XGBoost składał się ze 100 drzew decyzyjnych o maksymalnej głębokości 3. %TODO coś więcej
+	\begin{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{xgb.pdf}
+	\caption{TODO}
+	\label{fig:xgb}
+	\end{figure}
+    
     \chapter{Wyniki}
+	Modele były najpierw uczone na wszystkich zmiennych objaśniających oraz na danych z pominięciem odpowiedzi klasyfikatorów. Dzięki temu można porównać wyniki z wcześniej używanymi modelami. Po dokonaniu analizy istotności zmiennych zauważono, że istnieje jedna zmienna (leg\_2\_byCombinedIsolationDeltaBetaCorrRaw3Hits, patrz rozdział \ref{ch:dane}), która jest najbardziej istotna dla wszystkich modeli. Jako, że zmienna ta różni się na danych symulacyjnych oraz eksperymentalnych, postanowiono wytrenować również modele bez tej zmiennej.
+    
+	W tabeli \ref{tab:wyniki} znajdują się wyniki ROC AUC otrzymane dla wszystkich modeli. Modele (poza modelem opisanym w sekcji \ref{sec:mod1}) uczone były w trzech trybach: na pełnych danych, na danych z wyłączeniem odpowiedzi klasyfikatorów oraz na pełnych danych z wyłączeniem najlepszej zmiennej. Dla porównania zamieszczono wynik najlepszego z wcześniejszych klasyfikatorów, którym okazał się leg\_2\_deepTau2017v1tauVSjet. 
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{lrrrrr}
+	\toprule
+	Tryb & Stara sieć & Nowa sieć & XGBoost & Same klas. & Najlepszy klas. \\
+	\midrule
+	Pełne dane & .9948 & .9979 & \textbf{.9985} & $-$ & $-$ \\
+	Bez klas. & .9940 & .9949 & \textbf{.9956} & $-$ & .9945 \\
+	Bez najlepszej & .9977 & .9972 & \textbf{.9985} & $-$ & $-$ \\
+	Same klas. & $-$ & $-$ & $-$ & .9956 & $-$  \\
+	\bottomrule
+	\end{tabular}
+	\caption{Wartość ROC AUC dla wszystkich modeli na zbiorze testowym, pogrubioną czcionką zaznaczono najlepszy wynik.}
+	\label{tab:wyniki}
+	\end{table}
+	
+	Na rysunkach \ref{fig:res_best}, \ref{fig:res_new} i \ref{fig:res_disc} przedstawiono fragmenty krzywych ROC dla wybranych modeli. Na wykresach osie są zamienione, więc lepszy model ma mniejsze pole pod krzywą. Zakres TPR na wykresach został zmniejszony aby lepiej uwidocznić różnice między modelami.
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{best_models.png}
+	\caption{Porówanie najlepszych modeli. Stara sieć, nowa sieć oraz XGBoost były uczone na pełnych danych, deepTau na danych bez klasyfikatorów.}
+	\label{fig:res_best}
+	\end{figure}  
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{new_network.png}
+	\caption{Porównanie wszystkich trybów uczenia nowej sieci z najlepszym klasyfikatorem.}
+	\label{fig:res_new}
+	\end{figure} 	
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{without_disc.png}
+	\caption{Porównanie modeli uczonych na danych bez klasyfikatorów.}
+	\label{fig:res_disc}
+	\end{figure} 
+	
+    %TODO wyniki na eksperymentalnych?
+    %TODO wyniki na mieszaninach?
+    
     \chapter{Dyskusja}
     \chapter{Podsumowanie}
     

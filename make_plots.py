@@ -18,7 +18,7 @@ def get_data(filename, pred_dict):
 
 
 def save_plot(y_true, y_preds, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2)):
-    plt.figure(figsize=(10, 7))
+    plt.figure(figsize=(7, 5))
     for model, y_pred in y_preds.items():
         print('ROC AUC score for {} model: '.format(model), roc_auc_score(y_true, y_pred))
         roc = roc_curve(y_true, y_pred)
@@ -29,7 +29,7 @@ def save_plot(y_true, y_preds, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2)):
     plt.ylabel('False Positive Rate')
     plt.xlabel('True Positive Rate')
     plt.legend()
-    plt.savefig(name, dpi=500)
+    plt.savefig("praca/" + name, dpi=400)
 
 
 if __name__ == "__main__":
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         'XGBoost': 'C2-',
         'Nowa sieć neuronowa': 'C3-',
         'Stara sieć neuronowa': 'C4-.',
-        'Nowa sieć neuronowa bez dyskryminatorów': 'C1--',
+        'Nowa sieć neuronowa bez klasyfikatorów': 'C1--',
         'Nowa sieć neuronowa bez głównej zmiennej': 'C4-.',
     }
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
         "XGBoost": "models/pred_xgb_whole_data.npy",
         "XGBoost bez_disc": "models/pred_xgb_without_disc.npy",
         "Nowa sieć neuronowa": "models/pred_new_whole_data.npy",
-        "Nowa sieć neuronowa bez dyskryminatorów": "models/pred_new_without_disc.npy",
+        "Nowa sieć neuronowa bez klasyfikatorów": "models/pred_new_without_disc.npy",
         "Nowa sieć neuronowa bez_disc": "models/pred_new_without_disc.npy",
         "Nowa sieć neuronowa bez głównej zmiennej": "models/pred_new_without_BCI.npy",
     }
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     plot2 = {"Stara sieć neuronowa bez_disc", "leg_2_deepTau2017v1tauVSjet",
              "XGBoost bez_disc", "Nowa sieć neuronowa bez_disc"}
     plot3 = {"leg_2_deepTau2017v1tauVSjet", "Nowa sieć neuronowa",
-             "Nowa sieć neuronowa bez dyskryminatorów",
+             "Nowa sieć neuronowa bez klasyfikatorów",
              "Nowa sieć neuronowa bez głównej zmiennej"}
 
     y_true, y_preds = get_data("htt_features_test.pkl", pred_dict)

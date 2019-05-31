@@ -50,10 +50,6 @@ def preprocess(file_name, enable_data=True, enable_dicriminators=True,
     labels = features[:, 0]
     features = features[:, 1:]
 
-    # print("Input data shape:", features.shape)
-    # print("Number of positive examples:", (labels > 0.5).sum())
-    # print("Number of negative examples:", (labels < 0.5).sum())
-
     assert features.shape[0] == labels.shape[0]
 
     tmp = np.array(feature_names)

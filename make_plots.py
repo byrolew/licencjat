@@ -17,13 +17,16 @@ def get_data(filename, pred_dict):
     return y_true, y_preds
 
 
-def save_plot(y_true, y_preds, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2)):
+def save_plot(y_true, y_preds, auc_dict, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2)):
     plt.figure(figsize=(7, 5))
     for model, y_pred in y_preds.items():
         print('ROC AUC score for {} model: '.format(model), roc_auc_score(y_true, y_pred))
         roc = roc_curve(y_true, y_pred)
-        plt.semilogy(roc[1], roc[0], linetype[model.strip(" bez_disc")],
-                     label=model.strip(" bez_disc"), linewidth=2)
+        plt.semilogy(
+            roc[1], roc[0], linetype[model.strip(" bez_disc")],
+            label=model.strip(" bez_disc") + " " + auc_dict[model],
+            linewidth=2
+        )
     plt.xlim(xlim)
     plt.ylim(ylim)
     plt.ylabel('False Positive Rate')
@@ -54,6 +57,20 @@ if __name__ == "__main__":
         "Nowa sieć neuronowa bez_disc": "models/pred_new_without_disc.npy",
         "Nowa sieć neuronowa bez głównej zmiennej": "models/pred_new_without_BCI.npy",
     }
+
+    auc_dict = {
+        "leg_2_deepTau2017v1tauVSjet": "[0.9945]",
+        "Same klasyfikatory": "[0.9956]",
+        "Stara sieć neuronowa": "[0.9948]",
+        "Stara sieć neuronowa bez_disc": "[0.9940]",
+        "XGBoost": "[0.9985]",
+        "XGBoost bez_disc": "[0.9956]",
+        "Nowa sieć neuronowa": "[0.9979]",
+        "Nowa sieć neuronowa bez klasyfikatorów": "[0.9949]",
+        "Nowa sieć neuronowa bez_disc": "[0.9949]",
+        "Nowa sieć neuronowa bez głównej zmiennej": "[0.9972]",
+    }
+
     plot1 = {"Same klasyfikatory", "Stara sieć neuronowa",
              "XGBoost", "Nowa sieć neuronowa", "leg_2_deepTau2017v1tauVSjet"}
     plot2 = {"Stara sieć neuronowa bez_disc", "leg_2_deepTau2017v1tauVSjet",
@@ -64,9 +81,9 @@ if __name__ == "__main__":
 
     y_true, y_preds = get_data("htt_features_test.pkl", pred_dict)
 
-    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot1},
+    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot1}, auc_dict,
               name="best_models.png", ylim=(5e-6, 1e-2))
-    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot2},
+    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot2}, auc_dict,
               name="without_disc.png", ylim=(1e-4, 1e-2))
-    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot3},
+    save_plot(y_true, {k: v for k, v in y_preds.items() if k in plot3}, auc_dict,
               name="new_network.png")

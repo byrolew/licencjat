@@ -3,6 +3,7 @@ import random as rn
 
 import numpy as np
 import tensorflow as tf
+import keras
 from keras import backend as K
 from keras.models import Input, Model
 from keras.optimizers import Adam
@@ -12,6 +13,23 @@ from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
 from logger import logger
+
+
+class LossHistory(keras.callbacks.Callback):
+    def __init__(self, X, y):
+        super().__init__()
+        self.X = X
+        self.y = y
+
+    def on_train_begin(self, logs=None):
+        self.losses = []
+        self.val_losses = []
+
+    def on_batch_end(self, batch, logs=None):
+        self.losses.append(logs.get('loss'))
+        idx = np.random.randint(0, len(self.y), 128)
+        loss = self.model.evaluate(self.X[idx], self.y[idx], verbose=0)
+        self.val_losses.append(loss)
 
 
 def set_seed_global(random_seed):
@@ -25,18 +43,26 @@ def set_seed_global(random_seed):
     K.set_session(sess)
 
 
-def train_keras_model(features, labels, layers, model_name, scheduler=(), lr=0.001,
+def train_keras_model(features, labels, layers, model_name, scheduler=None, lr=0.001,
                       epochs=2, batch_size=128, random_seed=None):
     X_train, X_test, y_train, y_test = train_test_split(features, labels,
                                                         random_state=random_seed)
+    history = LossHistory(X_test, y_test)
+    if scheduler is None:
+        scheduler = [history]
+    else:
+        scheduler.append(history)
     input_dense = Input((features.shape[1],))
     output = input_dense
     for l in layers:
         output = l(output)
     model = Model(inputs=[input_dense], outputs=output)
     model.compile(optimizer=Adam(lr=lr), loss=binary_crossentropy)
-    model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, callbacks=scheduler)
+    model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs,
+              callbacks=scheduler, validation_data=(X_test, y_test))
 
+    np.save('models/train_losses_' + model_name, np.array(history.losses))
+    np.save('models/val_losses_' + model_name, np.array(history.val_losses))
     pred = model.predict(X_test)
     print_results(y_test, pred, model_name, True)
     return model

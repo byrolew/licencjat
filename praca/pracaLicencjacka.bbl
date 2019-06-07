@@ -153,6 +153,34 @@
     \field{year}{2018}
   \endentry
 
+  \entry{cms2016reconstruction}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=cC}{%
+         family={collaboration},
+         familyi={c\bibinitperiod},
+         given={CMS},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IOP Publishing}%
+    }
+    \strng{namehash}{cC+1}
+    \strng{fullhash}{cC+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{01}
+    \field{pages}{P01019}
+    \field{title}{Reconstruction and identification of $\tau$ lepton decays to
+  hadrons and $\nu$$\tau$ at CMS}
+    \field{volume}{11}
+    \field{journaltitle}{Journal of Instrumentation}
+    \field{year}{2016}
+  \endentry
+
   \entry{particle_physics}{article}{}
     \name{author}{1}{}{%
       {{hash=CPDG}{%

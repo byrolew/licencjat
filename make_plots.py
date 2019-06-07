@@ -1,4 +1,5 @@
 from copy import copy
+import re
 
 import numpy as np
 import pandas as pd
@@ -7,11 +8,11 @@ from matplotlib import pyplot as plt
 
 
 def get_data(filename, pred_dict):
-    models = ['leg_2_deepTau2017v1tauVSjet']
+    model = 'leg_2_deepTau2017v1tauVSjet'
     legs, jets, global_params, properties = pd.read_pickle(filename)
     y_true = np.array(global_params["sampleType"])
     y_true = np.reshape(y_true, (-1, 1))
-    y_preds = {model: copy(properties[model]) for model in models}
+    y_preds = {"deepTau": copy(properties[model])}
     for name, file in pred_dict.items():
         y_preds[name] = np.load(file)
     return y_true, y_preds
@@ -23,8 +24,8 @@ def save_plot(y_true, y_preds, auc_dict, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2
         print('ROC AUC score for {} model: '.format(model), roc_auc_score(y_true, y_pred))
         roc = roc_curve(y_true, y_pred)
         plt.semilogy(
-            roc[1], roc[0], linetype[model.strip(" bez_disc")],
-            label=model.strip(" bez_disc") + " " + auc_dict[model],
+            roc[1], roc[0], linetype[re.sub(" bez_disc$", "", model)],
+            label=re.sub(" bez_disc$", "", model) + " " + auc_dict[model],
             linewidth=2
         )
     plt.xlim(xlim)
@@ -37,47 +38,47 @@ def save_plot(y_true, y_preds, auc_dict, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2
 
 if __name__ == "__main__":
     linetype = {
-        'leg_2_deepTau2017v1tauVSjet': 'C0:',
-        'Same klasyfikatory': 'C1--',
+        'deepTau': 'C0:',
+        'ensemble': 'C1--',
         'XGBoost': 'C2-',
-        'Nowa sieć neuronowa': 'C3-',
-        'Stara sieć neuronowa': 'C4-.',
-        'Nowa sieć neuronowa bez klasyfikatorów': 'C1--',
-        'Nowa sieć neuronowa bez głównej zmiennej': 'C4-.',
+        'best-nn': 'C3-',
+        'baseline': 'C4-.',
+        'best-nn bez klasyfikatorów': 'C1--',
+        'best-nn bez głównej zmiennej': 'C4-.',
     }
 
     pred_dict = {
-        "Same klasyfikatory": "models/pred_only_disc.npy",
-        "Stara sieć neuronowa": "models/pred_whole_data.npy",
-        "Stara sieć neuronowa bez_disc": "models/pred_without_disc.npy",
+        "ensemble": "models/pred_only_disc.npy",
+        "baseline": "models/pred_whole_data.npy",
+        "baseline bez_disc": "models/pred_without_disc.npy",
         "XGBoost": "models/pred_xgb_whole_data.npy",
         "XGBoost bez_disc": "models/pred_xgb_without_disc.npy",
-        "Nowa sieć neuronowa": "models/pred_new_whole_data.npy",
-        "Nowa sieć neuronowa bez klasyfikatorów": "models/pred_new_without_disc.npy",
-        "Nowa sieć neuronowa bez_disc": "models/pred_new_without_disc.npy",
-        "Nowa sieć neuronowa bez głównej zmiennej": "models/pred_new_without_BCI.npy",
+        "best-nn": "models/pred_new_whole_data.npy",
+        "best-nn bez klasyfikatorów": "models/pred_new_without_disc.npy",
+        "best-nn bez_disc": "models/pred_new_without_disc.npy",
+        "best-nn bez głównej zmiennej": "models/pred_new_without_BCI.npy",
     }
 
     auc_dict = {
-        "leg_2_deepTau2017v1tauVSjet": "[0.9945]",
-        "Same klasyfikatory": "[0.9956]",
-        "Stara sieć neuronowa": "[0.9948]",
-        "Stara sieć neuronowa bez_disc": "[0.9940]",
+        "deepTau": "[0.9945]",
+        "ensemble": "[0.9956]",
+        "baseline": "[0.9948]",
+        "baseline bez_disc": "[0.9940]",
         "XGBoost": "[0.9985]",
         "XGBoost bez_disc": "[0.9956]",
-        "Nowa sieć neuronowa": "[0.9979]",
-        "Nowa sieć neuronowa bez klasyfikatorów": "[0.9949]",
-        "Nowa sieć neuronowa bez_disc": "[0.9949]",
-        "Nowa sieć neuronowa bez głównej zmiennej": "[0.9972]",
+        "best-nn": "[0.9979]",
+        "best-nn bez klasyfikatorów": "[0.9949]",
+        "best-nn bez_disc": "[0.9949]",
+        "best-nn bez głównej zmiennej": "[0.9972]",
     }
 
-    plot1 = {"Same klasyfikatory", "Stara sieć neuronowa",
-             "XGBoost", "Nowa sieć neuronowa", "leg_2_deepTau2017v1tauVSjet"}
-    plot2 = {"Stara sieć neuronowa bez_disc", "leg_2_deepTau2017v1tauVSjet",
-             "XGBoost bez_disc", "Nowa sieć neuronowa bez_disc"}
-    plot3 = {"leg_2_deepTau2017v1tauVSjet", "Nowa sieć neuronowa",
-             "Nowa sieć neuronowa bez klasyfikatorów",
-             "Nowa sieć neuronowa bez głównej zmiennej"}
+    plot1 = {"ensemble", "baseline",
+             "XGBoost", "best-nn", "deepTau"}
+    plot2 = {"baseline bez_disc", "deepTau",
+             "XGBoost bez_disc", "best-nn bez_disc"}
+    plot3 = {"deepTau", "best-nn",
+             "best-nn bez klasyfikatorów",
+             "best-nn bez głównej zmiennej"}
 
     y_true, y_preds = get_data("htt_features_test.pkl", pred_dict)
 

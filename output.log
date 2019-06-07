@@ -1,77 +1,77 @@
-05-31 15:49 logger       INFO     Reading data
-05-31 15:49 logger       INFO     ####################################################################################################
-05-31 15:49 logger       INFO     Training only_disc
-05-31 15:50 logger       INFO     only_disc, test accuracy 0.9832769722518182
-05-31 15:50 logger       INFO     only_disc, test ROC AUC 0.9956357648059713
-05-31 15:50 logger       INFO     only_disc, whole accuracy 0.9840962390341353
-05-31 15:50 logger       INFO     only_disc, whole ROC AUC 0.9959174490510163
-05-31 15:50 logger       INFO     ####################################################################################################
-05-31 15:50 logger       INFO     Training whole_data
-05-31 15:50 logger       INFO     whole_data, test accuracy 0.9851299393153287
-05-31 15:50 logger       INFO     whole_data, test ROC AUC 0.9947776992589614
-05-31 15:50 logger       INFO     whole_data, whole accuracy 0.9856481079359565
-05-31 15:50 logger       INFO     whole_data, whole ROC AUC 0.9950938630313649
-05-31 15:50 logger       INFO     ####################################################################################################
-05-31 15:50 logger       INFO     Training without_disc
-05-31 15:50 logger       INFO     without_disc, test accuracy 0.9766641960439153
-05-31 15:50 logger       INFO     without_disc, test ROC AUC 0.9939667632346347
-05-31 15:50 logger       INFO     without_disc, whole accuracy 0.9769854367526564
-05-31 15:50 logger       INFO     without_disc, whole ROC AUC 0.9942048600042734
-05-31 15:50 logger       INFO     ####################################################################################################
-05-31 15:50 logger       INFO     Training without_BCI
-05-31 15:51 logger       INFO     without_BCI, test accuracy 0.9856742483902349
-05-31 15:51 logger       INFO     without_BCI, test ROC AUC 0.9977068996209393
-05-31 15:51 logger       INFO     without_BCI, whole accuracy 0.9862937548857813
-05-31 15:51 logger       INFO     without_BCI, whole ROC AUC 0.9978632510502476
-05-31 15:51 logger       INFO     ####################################################################################################
-05-31 15:51 logger       INFO     Training new_whole_data
-05-31 15:52 logger       INFO     new_whole_data, test accuracy 0.9865312456571085
-05-31 15:52 logger       INFO     new_whole_data, test ROC AUC 0.9979433167110355
-05-31 15:52 logger       INFO     new_whole_data, whole accuracy 0.9870436318364747
-05-31 15:52 logger       INFO     new_whole_data, whole ROC AUC 0.9981002150142186
-05-31 15:52 logger       INFO     ####################################################################################################
-05-31 15:52 logger       INFO     Training new_without_disc
-05-31 15:53 logger       INFO     new_without_disc, test accuracy 0.9780539213415481
-05-31 15:53 logger       INFO     new_without_disc, test ROC AUC 0.9948585822716668
-05-31 15:54 logger       INFO     new_without_disc, whole accuracy 0.9782738353745042
-05-31 15:54 logger       INFO     new_without_disc, whole ROC AUC 0.995001194355782
-05-31 15:54 logger       INFO     ####################################################################################################
-05-31 15:54 logger       INFO     Training new_without_BCI
-05-31 15:55 logger       INFO     new_without_BCI, test accuracy 0.975957752350952
-05-31 15:55 logger       INFO     new_without_BCI, test ROC AUC 0.9972213990119402
-05-31 15:55 logger       INFO     new_without_BCI, whole accuracy 0.976328208691624
-05-31 15:55 logger       INFO     new_without_BCI, whole ROC AUC 0.9973580198075866
-05-31 15:55 logger       INFO     ####################################################################################################
-05-31 15:55 logger       INFO     Training xgb_whole_data
-05-31 15:57 logger       INFO     xgb_whole_data, test accuracy 0.9891833047667578
-05-31 15:57 logger       INFO     xgb_whole_data, test ROC AUC 0.9984872768509312
-05-31 15:57 logger       INFO     xgb_whole_data, whole accuracy 0.9898375749153131
-05-31 15:57 logger       INFO     xgb_whole_data, whole ROC AUC 0.9986529530943961
-05-31 15:57 logger       INFO     ####################################################################################################
-05-31 15:57 logger       INFO     Training xgb_without_disc
-05-31 15:58 logger       INFO     xgb_without_disc, test accuracy 0.9805438458331404
-05-31 15:58 logger       INFO     xgb_without_disc, test ROC AUC 0.995627453570823
-05-31 15:59 logger       INFO     xgb_without_disc, whole accuracy 0.9812472856770608
-05-31 15:59 logger       INFO     xgb_without_disc, whole ROC AUC 0.9959827316757126
-05-31 15:59 logger       INFO     ####################################################################################################
-05-31 15:59 logger       INFO     Training xgb_without_BCI
-05-31 16:00 logger       INFO     xgb_without_BCI, test accuracy 0.9890674943252884
-05-31 16:00 logger       INFO     xgb_without_BCI, test ROC AUC 0.9984809983351585
-05-31 16:00 logger       INFO     xgb_without_BCI, whole accuracy 0.9897478213034541
-05-31 16:00 logger       INFO     xgb_without_BCI, whole ROC AUC 0.998646272685421
-05-31 16:00 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, whole accuracy 0.9746286806219057
-05-31 16:00 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, whole ROC AUC 0.992395033222944
-05-31 16:00 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, test accuracy 0.9737110297864455
-05-31 16:00 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, test ROC AUC 0.9918696066549784
-05-31 16:00 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, whole accuracy 0.9620313269058166
-05-31 16:00 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, whole ROC AUC 0.90210327699293
-05-31 16:00 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, test accuracy 0.9618636216241256
-05-31 16:00 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, test ROC AUC 0.8993255577554671
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSall, whole accuracy 0.9781348620400128
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSall, whole ROC AUC 0.9921605773558191
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSall, test accuracy 0.9773358966044379
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSall, test ROC AUC 0.9914574820412384
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSjet, whole accuracy 0.9810504067865312
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSjet, whole ROC AUC 0.9947219762323518
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSjet, test accuracy 0.9798953073609117
-05-31 16:00 logger       INFO     leg_2_deepTau2017v1tauVSjet, test ROC AUC 0.9944620896395095
+06-06 22:23 logger       INFO     Reading data
+06-06 22:24 logger       INFO     ####################################################################################################
+06-06 22:24 logger       INFO     Training only_disc
+06-06 22:24 logger       INFO     only_disc, test accuracy 0.9832306480752304
+06-06 22:24 logger       INFO     only_disc, test ROC AUC 0.9956383519033583
+06-06 22:24 logger       INFO     only_disc, whole accuracy 0.9840788673673239
+06-06 22:24 logger       INFO     only_disc, whole ROC AUC 0.9959197511613842
+06-06 22:24 logger       INFO     ####################################################################################################
+06-06 22:24 logger       INFO     Training whole_data
+06-06 22:24 logger       INFO     whole_data, test accuracy 0.9851878445360633
+06-06 22:24 logger       INFO     whole_data, test ROC AUC 0.9931109166780121
+06-06 22:24 logger       INFO     whole_data, whole accuracy 0.9857812907148441
+06-06 22:24 logger       INFO     whole_data, whole ROC AUC 0.9936081533901606
+06-06 22:24 logger       INFO     ####################################################################################################
+06-06 22:24 logger       INFO     Training without_disc
+06-06 22:25 logger       INFO     without_disc, test accuracy 0.9764673182934174
+06-06 22:25 logger       INFO     without_disc, test ROC AUC 0.994435101039569
+06-06 22:25 logger       INFO     without_disc, whole accuracy 0.9768956831407973
+06-06 22:25 logger       INFO     without_disc, whole ROC AUC 0.99465872480351
+06-06 22:25 logger       INFO     ####################################################################################################
+06-06 22:25 logger       INFO     Training without_BCI
+06-06 22:25 logger       INFO     without_BCI, test accuracy 0.9858016398758512
+06-06 22:25 logger       INFO     without_BCI, test ROC AUC 0.9977497160826932
+06-06 22:25 logger       INFO     without_BCI, whole accuracy 0.9864008801644518
+06-06 22:25 logger       INFO     without_BCI, whole ROC AUC 0.997902308967134
+06-06 22:25 logger       INFO     ####################################################################################################
+06-06 22:25 logger       INFO     Training new_whole_data
+06-06 22:26 logger       INFO     new_whole_data, test accuracy 0.9866470560985778
+06-06 22:26 logger       INFO     new_whole_data, test ROC AUC 0.9980085551762565
+06-06 22:26 logger       INFO     new_whole_data, whole accuracy 0.9871420712817395
+06-06 22:26 logger       INFO     new_whole_data, whole ROC AUC 0.99816208983154
+06-06 22:26 logger       INFO     ####################################################################################################
+06-06 22:26 logger       INFO     Training new_without_disc
+06-06 22:27 logger       INFO     new_without_disc, test accuracy 0.9789804048733034
+06-06 22:27 logger       INFO     new_without_disc, test ROC AUC 0.9949800376239356
+06-06 22:27 logger       INFO     new_without_disc, whole accuracy 0.9794203653840586
+06-06 22:27 logger       INFO     new_without_disc, whole ROC AUC 0.9951679647579403
+06-06 22:27 logger       INFO     ####################################################################################################
+06-06 22:27 logger       INFO     Training new_without_BCI
+06-06 22:28 logger       INFO     new_without_BCI, test accuracy 0.9873766618798351
+06-06 22:28 logger       INFO     new_without_BCI, test ROC AUC 0.9980471117973703
+06-06 22:29 logger       INFO     new_without_BCI, whole accuracy 0.9879324821216596
+06-06 22:29 logger       INFO     new_without_BCI, whole ROC AUC 0.9982108277869094
+06-06 22:29 logger       INFO     ####################################################################################################
+06-06 22:29 logger       INFO     Training xgb_whole_data
+06-06 22:29 logger       INFO     xgb_whole_data, test accuracy 0.9891833047667578
+06-06 22:29 logger       INFO     xgb_whole_data, test ROC AUC 0.9984872768509312
+06-06 22:29 logger       INFO     xgb_whole_data, whole accuracy 0.9898375749153131
+06-06 22:29 logger       INFO     xgb_whole_data, whole ROC AUC 0.9986529530943961
+06-06 22:29 logger       INFO     ####################################################################################################
+06-06 22:29 logger       INFO     Training xgb_without_disc
+06-06 22:30 logger       INFO     xgb_without_disc, test accuracy 0.9805438458331404
+06-06 22:30 logger       INFO     xgb_without_disc, test ROC AUC 0.995627453570823
+06-06 22:30 logger       INFO     xgb_without_disc, whole accuracy 0.9812472856770608
+06-06 22:30 logger       INFO     xgb_without_disc, whole ROC AUC 0.9959827316757126
+06-06 22:30 logger       INFO     ####################################################################################################
+06-06 22:30 logger       INFO     Training xgb_without_BCI
+06-06 22:31 logger       INFO     xgb_without_BCI, test accuracy 0.9890674943252884
+06-06 22:31 logger       INFO     xgb_without_BCI, test ROC AUC 0.9984809983351585
+06-06 22:31 logger       INFO     xgb_without_BCI, whole accuracy 0.9897478213034541
+06-06 22:31 logger       INFO     xgb_without_BCI, whole ROC AUC 0.998646272685421
+06-06 22:31 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, whole accuracy 0.9746286806219057
+06-06 22:31 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, whole ROC AUC 0.992395033222944
+06-06 22:31 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, test accuracy 0.9737110297864455
+06-06 22:31 logger       INFO     leg_2_byIsolationMVArun2v1DBnewDMwLTraw2017v2, test ROC AUC 0.9918696066549784
+06-06 22:31 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, whole accuracy 0.9620313269058166
+06-06 22:31 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, whole ROC AUC 0.90210327699293
+06-06 22:31 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, test accuracy 0.9618636216241256
+06-06 22:31 logger       INFO     leg_2_DPFTau_2016_v1tauVSall, test ROC AUC 0.8993255577554671
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSall, whole accuracy 0.9781348620400128
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSall, whole ROC AUC 0.9921605773558191
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSall, test accuracy 0.9773358966044379
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSall, test ROC AUC 0.9914574820412384
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSjet, whole accuracy 0.9810504067865312
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSjet, whole ROC AUC 0.9947219762323518
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSjet, test accuracy 0.9798953073609117
+06-06 22:31 logger       INFO     leg_2_deepTau2017v1tauVSjet, test ROC AUC 0.9944620896395095

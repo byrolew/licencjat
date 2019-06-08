@@ -19,7 +19,7 @@ def get_data(filename, pred_dict):
 
 
 def save_plot(y_true, y_preds, auc_dict, name, xlim=(0.2, 0.8), ylim=(1e-5, 1e-2)):
-    plt.figure(figsize=(7, 5))
+    plt.figure(figsize=(8, 5))
     for model, y_pred in y_preds.items():
         print('ROC AUC score for {} model: '.format(model), roc_auc_score(y_true, y_pred))
         roc = roc_curve(y_true, y_pred)

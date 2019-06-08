@@ -8,7 +8,7 @@ from keras import backend as K
 from keras.models import Input, Model
 from keras.optimizers import Adam
 from keras.losses import binary_crossentropy
-from sklearn.metrics import roc_auc_score, accuracy_score
+from sklearn.metrics import roc_auc_score, accuracy_score, log_loss
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
@@ -72,6 +72,18 @@ def split(features, labels, random_seed):
     return train_test_split(features, labels, random_state=random_seed)
 
 
+def save_xgb_losses(model, X_train, X_test, y_train, y_test, model_name):
+    losses_train = []
+    losses_test = []
+    for i in range(1, 101):
+        pred_train = model.predict_proba(X_train, ntree_limit=i)
+        pred_test = model.predict_proba(X_test, ntree_limit=i)
+        losses_train.append(log_loss(y_train, pred_train))
+        losses_test.append(log_loss(y_test, pred_test))
+    np.save("models/train_losses_" + model_name, losses_train)
+    np.save("models/val_losses_" + model_name, losses_test)
+
+
 def train_xgb(features, labels, model_name, random_seed=None):
     X_train, X_test, y_train, y_test = split(features, labels, random_seed)
 
@@ -79,6 +91,7 @@ def train_xgb(features, labels, model_name, random_seed=None):
     model.fit(X_train, y_train)
 
     pred = model.predict_proba(X_test)[:, 1]
+    save_xgb_losses(model, X_train, X_test, y_train, y_test, model_name)
     print_results(y_test, pred, model_name, True)
     return model
 

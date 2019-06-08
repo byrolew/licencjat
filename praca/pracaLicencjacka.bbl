@@ -17,6 +17,64 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{adolphi2008cms}{article}{}
+    \true{moreauthor}
+    \name{author}{1}{}{%
+      {{hash=AR}{%
+         family={Adolphi},
+         familyi={A\bibinitperiod},
+         given={Roman},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AR+1}
+    \strng{fullhash}{AR+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{pages}{S08004}
+    \field{title}{The {CMS} experiment at the {CERN LHC}}
+    \field{volume}{803}
+    \field{journaltitle}{Jinst}
+    \field{year}{2008}
+  \endentry
+
+  \entry{particle_physics}{article}{}
+    \name{author}{1}{}{%
+      {{hash=eaKN}{%
+         prefix={et},
+         prefixi={e\bibinitperiod},
+         family={al.},
+         familyi={a\bibinitperiod},
+         given={K\bibnamedelima Nakamura},
+         giveni={K\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{IOP} Publishing}%
+    }
+    \strng{namehash}{aKNe1}
+    \strng{fullhash}{aKNe1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1088/0954-3899/37/7a/075021
+    \endverb
+    \field{number}{7A}
+    \field{pages}{075021}
+    \field{title}{Review of Particle Physics}
+    \verb{url}
+    \verb https://doi.org/10.1088%2F0954-3899%2F37%2F7a%2F075021
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{Journal of Physics G: Nuclear and Particle Physics}
+    \field{year}{2010}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
   \entry{cms_technical}{report}{}
     \true{moreauthor}
     \name{author}{10}{}{%
@@ -94,6 +152,32 @@
     }
     \field{type}{techreport}
     \field{year}{2006}
+  \endentry
+
+  \entry{breiman2001random}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Breiman},
+         familyi={B\bibinitperiod},
+         given={Leo},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BL1}
+    \strng{fullhash}{BL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{1}
+    \field{pages}{5\bibrangedash 32}
+    \field{title}{Random forests}
+    \field{volume}{45}
+    \field{journaltitle}{Machine learning}
+    \field{year}{2001}
   \endentry
 
   \entry{xgboost}{inproceedings}{}
@@ -181,30 +265,37 @@
     \field{year}{2016}
   \endentry
 
-  \entry{particle_physics}{article}{}
-    \name{author}{1}{}{%
-      {{hash=CPDG}{%
-         family={Collaboration},
-         familyi={C\bibinitperiod},
-         given={Particle Data\bibnamedelima Group},
-         giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim
-  G\bibinitperiod},
+  \entry{freund1997decision}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FY}{%
+         family={Freund},
+         familyi={F\bibinitperiod},
+         given={Yoav},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SRE}{%
+         family={Schapire},
+         familyi={S\bibinitperiod},
+         given={Robert\bibnamedelima E},
+         giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {J. Phys. G}%
+      {Elsevier}%
     }
-    \strng{namehash}{CPDG1}
-    \strng{fullhash}{CPDG1}
+    \strng{namehash}{FYSRE1}
+    \strng{fullhash}{FYSRE1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{doi}
-    \verb 10.1088/0954-3899/37/7A/075021
-    \endverb
-    \field{title}{Review of particle physics}
-    \field{year}{2010}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{1}
+    \field{pages}{119\bibrangedash 139}
+    \field{title}{A decision-theoretic generalization of on-line learning and
+  an application to boosting}
+    \field{volume}{55}
+    \field{journaltitle}{Journal of computer and system sciences}
+    \field{year}{1997}
   \endentry
 
   \entry{dl}{book}{}

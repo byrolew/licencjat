@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.24)  8 JUN 2019 22:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.24)  19 JUN 2019 13:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,279 +971,285 @@ Rozdzia\PlPrIeC {\l } 1.
 [4
 
 ]
-LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <9> on input line 109.
-LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 109.
- [5]
-<cms.png, id=171, 3189.9175pt x 2253.41875pt>
+<cms.png, id=156, 3189.9175pt x 2253.41875pt>
 File: cms.png Graphic file (type png)
 <use cms.png>
-Package pdftex.def Info: cms.png  used on input line 121.
+Package pdftex.def Info: cms.png  used on input line 111.
 (pdftex.def)             Requested size: 441.01773pt x 311.52228pt.
- [6 <./cms.png>]
-<simple_nn.pdf, id=183, 216.81pt x 238.97281pt>
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <9> on input line 116.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <5> on input line 116.
+ [5 <./cms.png>]
+<simple_nn.pdf, id=182, 216.81pt x 238.97281pt>
 File: simple_nn.pdf Graphic file (type pdf)
 <use simple_nn.pdf>
-Package pdftex.def Info: simple_nn.pdf  used on input line 135.
+Package pdftex.def Info: simple_nn.pdf  used on input line 134.
 (pdftex.def)             Requested size: 220.50887pt x 243.06349pt.
-<loss_ensemble.png, id=185, 361.35pt x 289.08pt>
+
+Underfull \vbox (badness 2150) has occurred while \output is active []
+
+ [6]
+<loss_ensemble.png, id=191, 325.215pt x 289.08pt>
 File: loss_ensemble.png Graphic file (type png)
 <use loss_ensemble.png>
-Package pdftex.def Info: loss_ensemble.png  used on input line 144.
-(pdftex.def)             Requested size: 308.71106pt x 246.97188pt.
+Package pdftex.def Info: loss_ensemble.png  used on input line 143.
+(pdftex.def)             Requested size: 308.71106pt x 274.43034pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
  [7 <./simple_nn.pdf
 
 pdfTeX warning: pdflatex (file ./simple_nn.pdf): PDF inclusion: invalid other r
 esource which is no dict (key 'ProcSets', type <array>); ignored.
->]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 156.
-
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 156.
- [8 <./loss_ensemble.png>]
-<tree.pdf, id=237, 180.675pt x 159.71669pt>
+>] [8 <./loss_ensemble.png>]
+<tree.pdf, id=244, 180.675pt x 159.71669pt>
 File: tree.pdf Graphic file (type pdf)
 <use tree.pdf>
-Package pdftex.def Info: tree.pdf  used on input line 173.
+Package pdftex.def Info: tree.pdf  used on input line 172.
 (pdftex.def)             Requested size: 220.50887pt x 194.93205pt.
  [9 <./tree.pdf
 
 pdfTeX warning: pdflatex (file ./tree.pdf): PDF inclusion: invalid other resour
 ce which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-<roc_example.png, id=255, 433.62pt x 433.62pt>
+<roc_example.png, id=262, 433.62pt x 433.62pt>
 File: roc_example.png Graphic file (type png)
 <use roc_example.png>
-Package pdftex.def Info: roc_example.png  used on input line 187.
+Package pdftex.def Info: roc_example.png  used on input line 186.
 (pdftex.def)             Requested size: 352.81552pt x 352.83147pt.
  [10 <./roc_example.png>]
 Rozdzia\PlPrIeC {\l } 2.
+<cones.pdf, id=271, 700.53719pt x 773.7708pt>
+File: cones.pdf Graphic file (type pdf)
+<use cones.pdf>
+Package pdftex.def Info: cones.pdf  used on input line 202.
+(pdftex.def)             Requested size: 220.50887pt x 243.562pt.
 [11
 
-]
-<difference_decayMode.png, id=271, 433.62pt x 289.08pt>
+ <./cones.pdf
+
+pdfTeX warning: pdflatex (file ./cones.pdf): PDF inclusion: invalid other resou
+rce which is no dict (key 'ProcSets', type <array>); ignored.
+>] [12]
+<difference_decayMode.png, id=294, 433.62pt x 289.08pt>
 File: difference_decayMode.png Graphic file (type png)
 <use difference_decayMode.png>
-Package pdftex.def Info: difference_decayMode.png  used on input line 233.
+Package pdftex.def Info: difference_decayMode.png  used on input line 247.
 (pdftex.def)             Requested size: 220.50887pt x 147.00539pt.
-<difference_eRatio.png, id=272, 433.62pt x 289.08pt>
+<difference_eRatio.png, id=295, 433.62pt x 289.08pt>
 File: difference_eRatio.png Graphic file (type png)
 <use difference_eRatio.png>
-Package pdftex.def Info: difference_eRatio.png  used on input line 238.
+Package pdftex.def Info: difference_eRatio.png  used on input line 252.
 (pdftex.def)             Requested size: 220.50887pt x 147.00539pt.
-<difference_ptWeightedDrIsolation.png, id=273, 433.62pt x 289.08pt>
+<difference_ptWeightedDrIsolation.png, id=296, 433.62pt x 289.08pt>
 File: difference_ptWeightedDrIsolation.png Graphic file (type png)
 <use difference_ptWeightedDrIsolation.png>
 Package pdftex.def Info: difference_ptWeightedDrIsolation.png  used on input li
-ne 243.
+ne 257.
 (pdftex.def)             Requested size: 209.48274pt x 139.65666pt.
-<difference_ptWeightedDetaStrip.png, id=274, 433.62pt x 289.08pt>
+<difference_ptWeightedDetaStrip.png, id=297, 433.62pt x 289.08pt>
 File: difference_ptWeightedDetaStrip.png Graphic file (type png)
 <use difference_ptWeightedDetaStrip.png>
 Package pdftex.def Info: difference_ptWeightedDetaStrip.png  used on input line
- 248.
+ 262.
 (pdftex.def)             Requested size: 220.50887pt x 147.00539pt.
-<difference_gjAngleDiff.png, id=275, 433.62pt x 289.08pt>
+<difference_gjAngleDiff.png, id=298, 433.62pt x 289.08pt>
 File: difference_gjAngleDiff.png Graphic file (type png)
 <use difference_gjAngleDiff.png>
-Package pdftex.def Info: difference_gjAngleDiff.png  used on input line 253.
+Package pdftex.def Info: difference_gjAngleDiff.png  used on input line 267.
 (pdftex.def)             Requested size: 220.50887pt x 147.00539pt.
-<difference_flightLengthSig.png, id=276, 433.62pt x 289.08pt>
-File: difference_flightLengthSig.png Graphic file (type png)
-<use difference_flightLengthSig.png>
-Package pdftex.def Info: difference_flightLengthSig.png  used on input line 258
-.
+<difference_nPhoton.png, id=299, 433.62pt x 289.08pt>
+File: difference_nPhoton.png Graphic file (type png)
+<use difference_nPhoton.png>
+Package pdftex.def Info: difference_nPhoton.png  used on input line 272.
 (pdftex.def)             Requested size: 220.50887pt x 147.00539pt.
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 231--261
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 245--275
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 231--261
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 245--275
 []$ $[]$
  []
 
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 231--261
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 245--275
 []$ $[]$ 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-[13 <./difference_decayMode.png> <./difference_eRatio.png> <./difference_ptWeig
-htedDrIsolation.png> <./difference_ptWeightedDetaStrip.png> <./difference_gjAng
-leDiff.png> <./difference_flightLengthSig.png>]
+[13] [14 <./difference_decayMode.png> <./difference_eRatio.png> <./difference_p
+tWeightedDrIsolation.png> <./difference_ptWeightedDetaStrip.png> <./difference_
+gjAngleDiff.png> <./difference_nPhoton.png>]
 Rozdzia\PlPrIeC {\l } 3.
-LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 267
+LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 281
 .
 (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-<neural_net.pdf, id=301, 433.62pt x 307.1475pt>
+<neural_net.pdf, id=323, 433.62pt x 307.1475pt>
 File: neural_net.pdf Graphic file (type pdf)
 <use neural_net.pdf>
-Package pdftex.def Info: neural_net.pdf  used on input line 283.
+Package pdftex.def Info: neural_net.pdf  used on input line 297.
 (pdftex.def)             Requested size: 330.76329pt x 234.30156pt.
- [14
+ [15
 
 ]
-<best_neural_net.pdf, id=310, 325.215pt x 307.1475pt>
+<best_neural_net.pdf, id=333, 325.215pt x 307.1475pt>
 File: best_neural_net.pdf Graphic file (type pdf)
 <use best_neural_net.pdf>
-Package pdftex.def Info: best_neural_net.pdf  used on input line 290.
+Package pdftex.def Info: best_neural_net.pdf  used on input line 304.
 (pdftex.def)             Requested size: 286.65883pt x 270.75461pt.
 
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
- [15 <./neural_net.pdf> <./best_neural_net.pdf
+ [16 <./neural_net.pdf> <./best_neural_net.pdf
 
 pdfTeX warning: pdflatex (file ./best_neural_net.pdf): PDF inclusion: invalid o
 ther resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-<xgb.pdf, id=342, 650.43pt x 216.81pt>
+<xgb.pdf, id=364, 650.43pt x 216.81pt>
 File: xgb.pdf Graphic file (type pdf)
 <use xgb.pdf>
-Package pdftex.def Info: xgb.pdf  used on input line 301.
+Package pdftex.def Info: xgb.pdf  used on input line 315.
 (pdftex.def)             Requested size: 441.01773pt x 147.0087pt.
- [16 <./xgb.pdf
+ [17 <./xgb.pdf
 
 pdfTeX warning: pdflatex (file ./xgb.pdf): PDF inclusion: invalid other resourc
 e which is no dict (key 'ProcSets', type <array>); ignored.
 >]
 Rozdzia\PlPrIeC {\l } 4.
-<density_ensemble.png, id=362, 361.35pt x 289.08pt>
+<density_ensemble.png, id=383, 361.35pt x 289.08pt>
 File: density_ensemble.png Graphic file (type png)
 <use density_ensemble.png>
-Package pdftex.def Info: density_ensemble.png  used on input line 335.
+Package pdftex.def Info: density_ensemble.png  used on input line 349.
 (pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<density_baseline.png, id=363, 361.35pt x 289.08pt>
+<density_baseline.png, id=384, 361.35pt x 289.08pt>
 File: density_baseline.png Graphic file (type png)
 <use density_baseline.png>
-Package pdftex.def Info: density_baseline.png  used on input line 340.
+Package pdftex.def Info: density_baseline.png  used on input line 354.
 (pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<density_best-nn.png, id=364, 361.35pt x 289.08pt>
+<density_best-nn.png, id=385, 361.35pt x 289.08pt>
 File: density_best-nn.png Graphic file (type png)
 <use density_best-nn.png>
-Package pdftex.def Info: density_best-nn.png  used on input line 345.
+Package pdftex.def Info: density_best-nn.png  used on input line 359.
 (pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<density_XGBoost.png, id=365, 361.35pt x 289.08pt>
+<density_XGBoost.png, id=386, 361.35pt x 289.08pt>
 File: density_XGBoost.png Graphic file (type png)
 <use density_XGBoost.png>
-Package pdftex.def Info: density_XGBoost.png  used on input line 350.
+Package pdftex.def Info: density_XGBoost.png  used on input line 364.
 (pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<density_deepTau.png, id=366, 361.35pt x 289.08pt>
+<density_deepTau.png, id=387, 361.35pt x 289.08pt>
 File: density_deepTau.png Graphic file (type png)
 <use density_deepTau.png>
-Package pdftex.def Info: density_deepTau.png  used on input line 355.
+Package pdftex.def Info: density_deepTau.png  used on input line 369.
 (pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 333--358
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 347--372
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 333--358
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 347--372
 []$ $[]$
  []
 
-[17
+[18
 
-] [18 <./density_ensemble.png> <./density_baseline.png> <./density_best-nn.png>
+] [19 <./density_ensemble.png> <./density_baseline.png> <./density_best-nn.png>
  <./density_XGBoost.png> <./density_deepTau.png>]
 File: loss_ensemble.png Graphic file (type png)
 <use loss_ensemble.png>
-Package pdftex.def Info: loss_ensemble.png  used on input line 371.
-(pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<loss_baseline.png, id=388, 361.35pt x 289.08pt>
+Package pdftex.def Info: loss_ensemble.png  used on input line 385.
+(pdftex.def)             Requested size: 220.50887pt x 196.0116pt.
+<loss_baseline.png, id=405, 325.215pt x 289.08pt>
 File: loss_baseline.png Graphic file (type png)
 <use loss_baseline.png>
-Package pdftex.def Info: loss_baseline.png  used on input line 376.
-(pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<loss_best-nn.png, id=389, 361.35pt x 289.08pt>
+Package pdftex.def Info: loss_baseline.png  used on input line 390.
+(pdftex.def)             Requested size: 220.50887pt x 196.0116pt.
+<loss_best-nn.png, id=406, 325.215pt x 289.08pt>
 File: loss_best-nn.png Graphic file (type png)
 <use loss_best-nn.png>
-Package pdftex.def Info: loss_best-nn.png  used on input line 381.
-(pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
-<loss_xgb.png, id=390, 361.35pt x 289.08pt>
+Package pdftex.def Info: loss_best-nn.png  used on input line 395.
+(pdftex.def)             Requested size: 220.50887pt x 196.0116pt.
+<loss_xgb.png, id=407, 325.215pt x 289.08pt>
 File: loss_xgb.png Graphic file (type png)
 <use loss_xgb.png>
-Package pdftex.def Info: loss_xgb.png  used on input line 386.
-(pdftex.def)             Requested size: 220.50887pt x 176.4091pt.
+Package pdftex.def Info: loss_xgb.png  used on input line 400.
+(pdftex.def)             Requested size: 220.50887pt x 196.0116pt.
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 369--389
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 383--403
 []$[]$ $[]$
  []
 
 
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 369--389
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 383--403
 []$ $[]$ 
  []
 
-<loss_all.png, id=391, 578.16pt x 361.35pt>
+<loss_all.png, id=408, 578.16pt x 361.35pt>
 File: loss_all.png Graphic file (type png)
 <use loss_all.png>
-Package pdftex.def Info: loss_all.png  used on input line 395.
+Package pdftex.def Info: loss_all.png  used on input line 409.
 (pdftex.def)             Requested size: 441.01773pt x 275.63235pt.
-[19 <./loss_baseline.png> <./loss_best-nn.png> <./loss_xgb.png>]
-<best_models.png, id=403, 578.16pt x 361.35pt>
+<best_models.png, id=412, 578.16pt x 361.35pt>
 File: best_models.png Graphic file (type png)
 <use best_models.png>
-Package pdftex.def Info: best_models.png  used on input line 404.
+Package pdftex.def Info: best_models.png  used on input line 418.
 (pdftex.def)             Requested size: 441.01773pt x 275.63235pt.
-<new_network.png, id=405, 578.16pt x 361.35pt>
+<new_network.png, id=414, 578.16pt x 361.35pt>
 File: new_network.png Graphic file (type png)
 <use new_network.png>
-Package pdftex.def Info: new_network.png  used on input line 413.
+Package pdftex.def Info: new_network.png  used on input line 427.
 (pdftex.def)             Requested size: 441.01773pt x 275.63235pt.
-<without_disc.png, id=407, 578.16pt x 361.35pt>
+<without_disc.png, id=416, 578.16pt x 361.35pt>
 File: without_disc.png Graphic file (type png)
 <use without_disc.png>
-Package pdftex.def Info: without_disc.png  used on input line 422.
+Package pdftex.def Info: without_disc.png  used on input line 436.
 (pdftex.def)             Requested size: 441.01773pt x 275.63235pt.
- [20 <./loss_all.png>] [21 <./best_models.png> <./new_network.png>] [22 <./with
-out_disc.png>]
+[20] [21 <./loss_baseline.png> <./loss_best-nn.png> <./loss_xgb.png>] [22 <./lo
+ss_all.png> <./best_models.png>] [23 <./new_network.png> <./without_disc.png>]
 Rozdzia\PlPrIeC {\l } 5.
-[23
-
-]
-Rozdzia\PlPrIeC {\l } 6.
 [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
- [25
+Rozdzia\PlPrIeC {\l } 6.
+[25
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 461.
+ [26
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 461.
  (./pracaLicencjacka.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 461.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 461.
 Package rerunfilecheck Info: File `pracaLicencjacka.out' has not changed.
-(rerunfilecheck)             Checksum: AD3985543C7E7B86A9B726768890BC18;1186.
+(rerunfilecheck)             Checksum: 6F649CCF4A3A7ABE44406A5CC1D4409A;1252.
 Package logreq Info: Writing requests to 'pracaLicencjacka.run.xml'.
 \openout1 = `pracaLicencjacka.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 461.
  ) 
 Here is how much of TeX's memory you used:
- 13739 strings out of 494847
- 230455 string characters out of 6178851
- 501789 words of memory out of 5000000
- 16815 multiletter control sequences out of 15000+600000
+ 13748 strings out of 494847
+ 230551 string characters out of 6178851
+ 502789 words of memory out of 5000000
+ 16821 multiletter control sequences out of 15000+600000
  20349 words of font info for 53 fonts, out of 8000000 for 9000
  56 hyphenation exceptions out of 8191
  45i,9n,49p,1266b,1596s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plsc.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texlive/texmf-dist/fonts/e
-nc/dvips/pl/plme.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc
-}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive
+nc/dvips/pl/plit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc}{/usr/share/texlive
 /texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/en
 c/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx10.pfb><
@@ -1264,10 +1270,10 @@ exlive/texmf-dist/fonts/type1/public/pl/plsy9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/pl/plti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/pl/plti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10
 .pfb>
-Output written on pracaLicencjacka.pdf (27 pages, 7268076 bytes).
+Output written on pracaLicencjacka.pdf (28 pages, 6852427 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
- 78 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 567 PDF objects out of 1000 (max. 8388607)
+ 435 compressed objects within 5 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

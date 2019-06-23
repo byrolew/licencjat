@@ -11,9 +11,9 @@
 \BOOKMARK [1][-]{section.1.6}{Istotnosc zmiennych}{chapter.1}% 11
 \BOOKMARK [0][-]{chapter.2}{Dane symulacyjne}{}% 12
 \BOOKMARK [0][-]{chapter.3}{Architektura modeli}{}% 13
-\BOOKMARK [1][-]{section.3.1}{Model oparty o same klasyfikatory}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.2}{Siec neuronowa}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.3}{Poprawiona siec neuronowa}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.1}{Model ensemble}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Model baseline}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.3}{Model best-nn}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.4}{XGBoost}{chapter.3}% 17
 \BOOKMARK [0][-]{chapter.4}{Wyniki}{}% 18
 \BOOKMARK [0][-]{chapter.5}{Dyskusja}{}% 19

@@ -57,7 +57,7 @@ Studiów Matematyczno-Przyrodniczych}
     \let\cleardoublepage\clearpage
     
     \begin{abstract}
-    Leptony tau	odgrywają istotną rolę w~wielu eksperymentach fizycznych. Niestety ze względu na krótki czas życia obserwuje się zazwyczaj produkty ich rozpadu, które mogą być mylone z~dżetami hadronowymi. W~poniższej pracy przedstawiono modele uczenia maszynowego zastosowane do identyfikacji taonów. Najlepszym modelem okazał się \textit{XGBoost}, który był lepszy niż wytrenowane sieci neuronowe oraz wcześniej stosowane klasyfikatory.
+    Leptony tau	odgrywają istotną rolę w~wielu eksperymentach fizycznych. Niestety ze względu na krótki czas życia obserwuje się zazwyczaj produkty ich rozpadu, które mogą być mylone z~dżetami hadronowymi. W~poniższej pracy przedstawiono modele uczenia maszynowego zastosowane do identyfikacji taonów. Najlepszym modelem okazał się algorytm \textit{XGBoost}, który był lepszy niż sieci neuronowe oraz wcześniej stosowane klasyfikatory.
 
     \end{abstract}
 
@@ -65,9 +65,9 @@ Studiów Matematyczno-Przyrodniczych}
     
     \chapter*{Cel pracy}
     \addcontentsline{toc}{chapter}{Cel pracy}
-    W~eksperymencie CMS przeprowadzanym w~Wielkim Zderzaczu Hadronów rejestrowane są pomiary zderzeń proton-proton, w~których mogą być produkowane cząstki rozpadające się na taony takie jak bozon Higgsa. Jednak ponieważ leptony $\tau$ są cząstkami o~krótkim czasie życia, trudno jest je wykrywać bezpośrednio i~zazwyczaj obserwuje się jedynie produkty ich rozpadu. Ze względu na dużą masę taonów, mogą one rozpadać się hadronowo, co czyni je jednak trudnymi do odróżnienia od dżetów hadronowych. Ponadto rejestrowanych pomiarów jest na tyle dużo, że nie mogą być przeglądane przez człowieka w~celu znalezienia obserwacji zawierających rozpad taonu. Z~tego powodu stosuje się algorytmy uczenia maszynowego, które pozwalają automatycznie dokonać wstępnej selekcji danych.
+    W~eksperymencie CMS przeprowadzanym w~Wielkim Zderzaczu Hadronów rejestrowane są pomiary zderzeń proton-proton, w~których mogą być produkowane cząstki rozpadające się na taony np. bozon Higgsa. Jednak leptony $\tau$ są cząstkami o~krótkim czasie życia, wobec tego trudno jest je wykrywać bezpośrednio i~zazwyczaj obserwuje się jedynie produkty ich rozpadu. Ze względu na dużą masę taonów, mogą one rozpadać się hadronowo, co czyni je trudnymi do odróżnienia od dżetów hadronowych. Ponadto rejestrowanych rozpadów leptonów tau jest na tyle dużo, że nie mogą być przeglądane przez człowieka w~celu znalezienia obserwacji zawierających rozpad taonu. Z~tego powodu stosuje się algorytmy uczenia maszynowego, które pozwalają automatycznie dokonać wstępnej selekcji danych.
     
-    Niestety rejestrowane pomiary nie dostarczają informacji czy w~zderzeniu wystąpił taon, także nie da się zastosować zebranych danych do treningu modeli nadzorowanych. Aby to umożliwić stosuje się dane symulacyjne, gdzie metodami Monte Carlo symulowane są rozpady $H \rightarrow \tau\tau$ jako sygnał oraz dżety hadronowe jako tło.
+    Niestety rejestrowane dane nie dostarczają informacji czy w~zderzeniu wystąpił taon, także nie da się zastosować rzeczywistych danych do treningu modeli nadzorowanych. Aby to umożliwić stosuje się dane symulacyjne, gdzie metodami Monte Carlo symulowane są rozpady $H \rightarrow \tau\tau$ jako sygnał oraz dżety hadronowe jako tło.
     
     Celem pracy było stworzenie modeli uczenia maszynowego pozwalających na rozróżnienie leptonów $\tau$ od dżetów hadronowych oraz porównanie wytrenowanych modeli z~już istniejącymi klasyfikatorami.
     
@@ -104,7 +104,7 @@ Studiów Matematyczno-Przyrodniczych}
 	\end{table}
     \newpage
     \section{Detektor CMS}
-	Detektor CMS (\textit{Compact Muon Solenoid}) znajduje się w~Wielkim Zderzaczu Hadronów (LHC) \cite{adolphi2008cms} w~CERN-ie. Ilustracja obrazująca wygląd CMS znajduje się na rysunku \ref{fig:cms}. Jego główne elementy to: nadprzewodząca cewka wytwarzająca pole magnetyczne o~indukcji 3.8 T, detektory krzemowe, kalorymetr elektromagnetyczny (ECAL), kalorymetr hadronowy (HCAL) i~komora jonizacyjna do wykrywania mionów. 
+	Detektor CMS (\textit{Compact Muon Solenoid}) znajduje się w~Wielkim Zderzaczu Hadronów (LHC) \cite{adolphi2008cms} w~CERN-ie. Ilustracja obrazująca wygląd CMS znajduje się na rysunku \ref{fig:cms}. Jego główne elementy to: nadprzewodząca cewka wytwarzająca pole magnetyczne o~indukcji 3.8~T, krzemowe detektory śladowe, kalorymetr elektromagnetyczny (ECAL), kalorymetr hadronowy (HCAL) i~detektory gazowe do wykrywania mionów. 
 	
 	\begin{figure}[H]
 	\centering
@@ -113,9 +113,9 @@ Studiów Matematyczno-Przyrodniczych}
 	\label{fig:cms}
 	\end{figure}
 	
-	Detektor krzemowy, pokrywający przedział pseudopospieszności\footnote{Pseudopospieszność $\eta$ cząstki definiowana jest jako $\eta = -\ln \tg(\theta/2)$, gdzie $\theta$ to kąt między kierunkiem lotu cząstki a~kierunkiem wiązki.} $|\eta| < 2.5$, składa się z~dwóch rodzajów detektorów: pikselowych i~paskowych. Korpus centralny składa się z~trzech warstw detektorów pikselowych oraz jedenastu warstw detektorów paskowych, natomiast końcówki z~jedenastu dysków, z~czego dwa zawierają detektory pikselowe, a~pozostałe detektory paskowe \cite{cms_technical}. Tor lotu hadronów jest rekonstruowany ze skutecznością 80-90\% w zależności od pędu poprzecznego i~pseudopospieszności $\eta$. Detektory krzemowe mają grubość od 0.4 do 2.0 długości drogi radiacyjnej ($X_0$), także fotony z~dużym prawdopodobieństwem konwertują wewnątrz detektora na pary $e^+e^-$ \cite{tauid13}.
+	Krzemowy detektor śladowy, pokrywający przedział pseudopospieszności\footnote{Pseudopospieszność $\eta$ cząstki definiowana jest jako $\eta = -\ln \tg(\theta/2)$, gdzie $\theta$ to kąt między kierunkiem lotu cząstki a~kierunkiem wiązki.} $|\eta| < 2.5$, składa się z~dwóch rodzajów detektorów: pikselowych i~paskowych. Korpus centralny (tzw. beczka) składa się z~trzech warstw detektorów pikselowych oraz jedenastu warstw detektorów paskowych, natomiast końcówki (tzw. pokrywy) z~jedenastu dysków, z~czego dwa zawierają detektory pikselowe, a~pozostałe detektory paskowe \cite{cms_technical}. Tor lotu hadronów jest rekonstruowany ze skutecznością 80-90\% w zależności od pędu poprzecznego i~pseudopospieszności $\eta$. Detektory krzemowe mają grubość od 0.4 do 2.0 długości drogi radiacyjnej ($X_0$), tak że fotony z~dużym prawdopodobieństwem konwertują wewnątrz detektora na pary $e^+e^-$ \cite{tauid13}.
 	
-	Kalorymetr ECAL jest zrobiony ze scyntylacyjnych kryształów stolzytu (PbWO$_4$). Posiada ponad 61000 kryształów w korpusie centralnym, pokrywającym $|\eta| < 1.48$ oraz ponad 7300 kryształów na końcach detektora, pokrywających $|\eta| < 3.0$. Stolzyt posiada krótką drogę radiacyjną ($X_0 = 0.89$ cm) oraz szybko wyświeca światło (80\% światła jest wyświecane w~25 ns). Dzięki temu dobrze rozdziela kaskady, więc jest często wykorzystywany do budowy kalorymetrów \cite{cms_technical}.
+	Kalorymetr ECAL jest zbudowany ze scyntylacyjnych kryształów stolzytu (PbWO$_4$). Posiada ponad 61000 kryształów w korpusie centralnym, pokrywającym $|\eta| < 1.48$ oraz ponad 7300 kryształów na końcach detektora, pokrywających $|\eta| < 3.0$. Stolzyt posiada krótką drogę radiacyjną ($X_0 = 0.89$ cm) oraz szybko wyświeca światło (80\% światła jest wyświecane w~25 ns). Dzięki temu dobrze rozdziela kaskady, więc jest często wykorzystywany do budowy kalorymetrów \cite{cms_technical}.
 	
 	Na zewnątrz ECAL znajduje się kalorymetr hadronowy HCAL zawierający mosiądz i~plastik. Mosiądz został wybrany ze względu na krótką drogę swobodną (ang. \textit{interaction length}) hadronów oraz słabe właściwości magnetyczne.
 Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do jedenastu dróg swobodnych w zależności od $\eta$. Natomiast dla $3.0 < \eta < 5.0$ używany jest stalowo kwarcowy kalorymetr przedni (ang. \textit{Hadron Forward}) \cite{cms_technical}.
@@ -123,11 +123,11 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 	Detektor mionowy składa się z~trzech rodzajów komór gazowych. W~części centralnej ($|\eta| < 1.2$) używane są komory \textit{drift tube} (DT), w~części końcowej ($|\eta| < 2.4$), pole magnetyczne nadal jest duże, ale niejednolite, używa się \textit{cathode strip chambers} (CSC). Dodatkowo we wszystkich miejscach są zastosowane \textit{resistive plate chambers} (RPC). RPC zapewnia dobrą dokładność czasową, natomiast DT i~CSC dobrą dokładność pozycyjną \cite{cms_technical}.	
 	
 	\section{Sieci neuronowe}
-	Sieci neuronowe to klasa modeli uczenia maszynowego stosowana m.in. w~uczeniu nadzorowanym \cite{dl}. Na podstawie danych treningowych zawierający zmienne objaśniające i~objaśniane model uczy się zależności występujących między tymi zmiennymi. Dzięki temu możliwe jest stosowanie modelu do predykcji zmiennych objaśnianych na podstawie nowych obserwacji.
+	Sieci neuronowe to klasa modeli uczenia maszynowego stosowana m.in. w~uczeniu nadzorowanym \cite{dl}. Na podstawie danych treningowych zawierających zmienne objaśniające i~objaśniane model uczy się zależności występujących między tymi zmiennymi. Dzięki temu możliwe jest stosowanie modelu do predykcji zmiennych objaśnianych na podstawie nowych obserwacji.
 	
-	Sieci neuronowe składają się z~warstw. Podstawową warstwą używaną w~sieciach neuronowych jest warstwa gęsta (ang. \textit{dense layer} lub \textit{fully connected layer}). Warstwa gęsta przyjmuje na wejściu wektor, a~na wyjściu zwraca nowy wektor ustalonej wielkości, niekoniecznie tego samego rozmiaru. Jest to warstwa bardzo generyczna, jednak jej minusem jest duża liczba parametrów. Każda warstwa gęsta składa się z~dwóch podstawowych elementów: transformacji liniowej oraz funkcji nieliniowej, zwanej funkcją aktywacji. Każda transformacja liniowa posiada wagi $w_i$ oraz przesunięcia $b_i$ (ang. \textit{bias}). Wyjście z~warstwy definiowane jest jako: $$y = f(x^TW + b),$$ gdzie $x$ to wektor wejściowy, $f$ - funkcja aktywacji, nie zmieniająca wymiaru wektora, $W$ - macierz wag warstwy, $b$ - wektor przesunięcia. Dodanie kolejnych warstw to złożenie kolejnych takich funkcji.
+	Sieci neuronowe składają się z~warstw. Podstawową warstwą używaną w~sieciach neuronowych jest warstwa gęsta (ang. \textit{dense layer} lub \textit{fully connected layer}). Warstwa gęsta przyjmuje na wejściu wektor, a~na wyjściu zwraca nowy wektor ustalonej wielkości, niekoniecznie tego samego rozmiaru. Jest to warstwa bardzo generyczna, jednak jej wadą jest duża liczba parametrów. Każda warstwa gęsta składa się z~dwóch podstawowych elementów: transformacji liniowej oraz funkcji nieliniowej, zwanej funkcją aktywacji. Każda transformacja liniowa posiada wagi $w_i$ oraz przesunięcia $b_i$ (ang. \textit{bias}). Wyjście z~warstwy definiowane jest jako: $$y = f(x^TW + b),$$ gdzie $x$ to wektor wejściowy, $f$ - funkcja aktywacji, nie zmieniająca wymiaru wektora, $W$ - macierz wag warstwy, $b$ - wektor przesunięcia. Dodanie kolejnych warstw to złożenie kolejnych takich funkcji.
 	
-	 Przykładowo na rysunku \ref{fig:simple} widoczne jest wejście do sieci $x$, które jest wektorem 3-elementowym. Następnie jest on transponowany i~przemnażany przez macierz wag $W_1$, która jest wymiaru $3\times4$ oraz dodane jest przesunięcie $b_1$ o~wymiarze $1\times4$. Na tym etapie nakłada się również funkcję aktywacji $f_1$. Kółka w warstwie ukrytej reprezentują wyjścia transformacji liniowych już po zastosowaniu funkcji aktywacji. Kolejny krok jest analogiczny, tym razem jest to jedna regresja liniowa, czyli macierz wag $W_2$ ma wymiar $4\times1$, a przesunięcie $b_2$ $1\times1$. Zatem wyjście~$y$: $$y = f_2\left(\left(f_1(x^TW_1 + b_1)\right)^TW_2 + b_2\right),$$ gdzie $f_1, f_2$ to funkcje aktywacji. Zauważmy, że nieliniowe funkcje aktywacji są konieczne, gdyż inaczej wielowarstwową sieć neuronową zawsze dałoby się sprowadzić do przypadku zwykłej transformacji liniowej odpowiednio przemnażając wagi \cite{dl}.
+	 Na rysunku \ref{fig:simple} widoczne jest wejście do sieci $x$, które jest wektorem o wymiarze 3. Następnie jest on transponowany i~przemnażany przez macierz wag $W_1$, która jest wymiaru $3\times4$ oraz dodane jest przesunięcie $b_1$ o~wymiarze $1\times4$. Na tym etapie nakłada się również funkcję aktywacji $f_1$. Kółka w warstwie ukrytej reprezentują wyjścia transformacji liniowych już po zastosowaniu funkcji aktywacji. Kolejny krok jest analogiczny, tym razem jest to jedna transformacja liniowa, czyli macierz wag $W_2$ ma wymiar $4\times1$, a przesunięcie $b_2$ $1\times1$. Zatem wyjście~$y$: $$y = f_2\left(f_1(x^TW_1 + b_1)W_2 + b_2\right),$$ gdzie $f_1, f_2$ to funkcje aktywacji. Zauważmy, że nieliniowe funkcje aktywacji są konieczne, gdyż inaczej wielowarstwową sieć neuronową zawsze dałoby się sprowadzić do przypadku zwykłej transformacji liniowej odpowiednio przemnażając wagi \cite{dl}.
 	
 	\begin{figure}[H]
 	\centering
@@ -136,21 +136,21 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 	\label{fig:simple}
 	\end{figure}
 	
-	Następnie aby otrzymać optymalny model poszukiwane jest minimum pewnej funkcji straty $L$ (czyli miejsce, gdzie model najmniej się myli). Przez funkcję straty rozumiana jest funkcja przybliżająca błąd popełniany przez model. Minimum jest znajdowane przy użyciu gradientu funkcji $L$ względem parametrów modelu. Niestety nie da się wyznaczyć gradientu $L$ w każdym miejscu, ale można go znaleźć dla aktualnego zestawu wag. 
+	Następnie aby otrzymać optymalny model poszukiwane jest minimum pewnej funkcji straty $L$ (czyli miejsce, gdzie model najmniej się myli). Przez funkcję straty rozumiana jest funkcja przybliżająca błąd popełniany przez model. Minimum jest znajdowane przy użyciu gradientu funkcji $L$ względem parametrów modelu. Niestety nie da się wyznaczyć gradientu $L$ w każdym miejscu dziedziny, ale można go znaleźć dla aktualnego zestawu wag. 
 	
 	Aby poprawić wagi oraz przesunięcie w modelu używa się iteracyjnego algorytmu \textit{Gradient Descent}, który polega na obliczeniu gradientu funkcji straty po parametrach modelu $\nabla_{w_i}L$, a następnie aktualizowane są wagi o pewien krok w kierunku ujemnego gradientu, także dla przykładowej wagi $w$ przy $n+1$-szej iteracji (górny indeks oznacza numer iteracji): $$w^{(n+1)} \leftarrow w^{(n)} - \gamma \frac{\partial L^{(n)}}{\partial w^{(n)}},$$ gdzie $\gamma$ to tzw. stała uczenia (ang. \textit{learning rate}) \cite{dl}. Widać, że istotne jest aby wszystkie funkcje użyte w modelu były różniczkowalne prawie wszędzie (w punktach nieciągłości pochodnej można przyjąć dowolną wartość brzegową). 
 	
 	\begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{loss_ensemble.png}
-	\caption{Przykładowa zmiana funkcji straty dla zbioru treningowego i~testowego od liczby obserwacji, pionowymi liniami zaznaczono końce kolejnych epok.}
+	\caption{Przykładowa zmiana funkcji straty dla zbioru treningowego i~testowego od liczby obserwacji, pionowymi liniami zaznaczono końce kolejnych epok. Jaśniejsze linie odpowiadają wartości funkcji straty uśrednionej po 10 batchach, a ciemniejsze po 200 batchach.}
 	\label{fig:loss_example}
 	\end{figure}	
 	
-	W~praktyce sieci neuronowe uczone są algorytmem \textit{Stochastic Gradient Descent} (SGD). Polega on na liczeniu funkcji straty dla pewnej liczby obserwacji (zwanej później \textit{batchem}), zamiast dla wszystkich obserwacji ze zbioru treningowego. Jednorazowe przejście przez wszystkie obserwacje nazywane jest epoką, i~zazwyczaj trening modelu składa się z~wielu epok. Przykładowy wygląd krzywej uczenia, czyli wykresu funkcji straty od liczby obserwacji przedstawiony jest na rysunku \ref{fig:loss_example}.
+	W~praktyce sieci neuronowe uczone są algorytmem \textit{Stochastic Gradient Descent} (SGD). Polega on na liczeniu funkcji straty dla pewnej liczby obserwacji (zwanej później \textit{batchem}), zamiast dla wszystkich obserwacji ze zbioru treningowego. Jednorazowe przejście przez wszystkie obserwacje nazywane jest epoką i~zazwyczaj trening modelu składa się z~wielu epok. Przykładowy wygląd krzywej uczenia, czyli wykresu funkcji straty od liczby obserwacji przedstawiony jest na rysunku \ref{fig:loss_example}.
 	
 	Rozwinięciem algorytmu SGD jest algorytm \textit{Adam} (\textit{Adaptive momentum}) \cite{adam}, który pomaga w zapobieganiu pozostawania w~lokalnych minimach funkcji straty.
-	
+	\newpage
 	\subsection{Funkcje aktywacji}
 	Stosowane później funkcje aktywacji wraz ze wzorami:
 	\begin{itemize}
@@ -179,13 +179,13 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 	\section{Miary skuteczności modeli}
 	Jako, że identyfikacja taonów to problem klasyfikacji binarnej, dobrą metryką do mierzenia skuteczności modelu jest ROC AUC (\textit{Area Under Receiver Operating Characteristic Curve}) oraz sama krzywa ROC. Analizowany model przewiduje prawdopodobieństwo, czy dany rozpad zawiera taon. Aby dokonać klasyfikacji musimy ustalić próg odcięcia ponad którym zawsze zwracane jest 1 (wystąpił taon), a~poniżej 0 (nie wystąpił). Wówczas można policzyć prawdziwe pozytywa (ang. \textit{true positives}, TP), czyli obserwacje oznaczone w danych jako sygnał i~przewidziane jako sygnał oraz fałszywe pozytywa (ang. \textit{false positives}, FP), czyli obserwacje oznaczone w danych jako tło, a~przewidziane jako sygnał. Następnie można obliczyć \textit{true positive rate} (TPR), czyli TP podzielone przez liczbę wszystkich obserwacji oznaczonych w danych jako sygnał oraz \textit{false positive rate} (FPR), czyli FP podzielone przez liczbę wszystkich obserwacji oznaczonych w danych jako tło. Krzywa ROC to wykres TPR od FPR dla różnych progów odcięcie. Jednak zgodnie z~występującą w fizyce cząstek konwencją, na wykresach krzywej ROC osie są zamienione, zatem jest to wykres FPR od TPR. 
 	
-	ROC AUC to pole pod krzywą ROC. W~związku z~tym przyjmuje ona wartości pomiędzy 0 a~1, gdzie 0.5 to wartość osiągana przez model losowy (przewidującego losowe prawdopodobieństwo np. z~rozkładu jednostajnego od 0 do 1), zaś 1 przez bezbłędny klasyfikator. Przykładowa krzywa ROC oraz jej ROC AUC dla modelu losowego oraz nielosowego znajdują się na rysunku \ref{fig:roc}. Ponieważ funkcja ROC AUC nie jest różniczkowalna, więc nie można jej bezpośrednio wykorzystać przy treningu sieci neuronowej jako funkcji straty. Jest jednak jest przydatna przy ewaluacji oraz porównywaniu wytrenowanych modeli.
+	ROC AUC to pole pod krzywą ROC. W~związku z~tym przyjmuje ona wartości pomiędzy 0 a~1, gdzie 0.5 to wartość osiągana przez model losowy (przewidującego losowe prawdopodobieństwo np. z~rozkładu jednostajnego od 0 do 1), zaś 1 przez bezbłędny klasyfikator. Przykładowa krzywa ROC oraz jej ROC AUC dla modelu losowego oraz nielosowego znajdują się na rysunku \ref{fig:roc}. Ponieważ funkcja ROC AUC nie jest różniczkowalna, nie można jej bezpośrednio wykorzystać przy treningu sieci neuronowej jako funkcji straty. Jest jednak jest przydatna przy ewaluacji oraz porównywaniu wytrenowanych modeli.
 	
-	Do treningu jako funkcje straty wykorzystuje się zazwyczaj binarną entropię krzyżową (ang. \textit{binary cross entropy}) \cite{dl}, daną wzorem: $$ L(y, p) = -(y\log(p)+(1-y)\log(1-p)),$$ gdzie $y$ to prawdziwe prawdopodobieństwo, że dana obserwacja zawiera taon (0 albo 1), a~$p$~to jego oszacowanie przez model.
+	Do treningu jako funkcje straty wykorzystuje się zazwyczaj binarną entropię krzyżową (ang. \textit{binary cross entropy}) \cite{dl}, daną wzorem: $$ L(y, p) = -(y\log(p)+(1-y)\log(1-p)),$$ gdzie $y$ to prawdziwe informacja czy dana obserwacja zawiera taon (0 albo 1), a~$p$~to oszacowane przez model prawdopodobieństwo występowania taonu.
 
 	\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{roc_example.png}
+	\includegraphics[width=0.7\textwidth]{roc_example.png}
 	\caption{Przykładowe krzywe ROC dla klasyfikatora losowego oraz nielosowego. W~nawiasach kwadratowych podano wartość ROC AUC dla danego modelu.}
 	\label{fig:roc}
 	\end{figure}
@@ -210,25 +210,25 @@ Tak samo jak ECAL pokrywa obszar $|\eta| < 3.0$. Jego grubość to od siedmiu do
 Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne informacje. Ostatecznie, otrzymane dane składają się z~19-stu zmiennych objaśniających \cite{cms2016reconstruction}:
 
 	\begin{itemize}
-	\item \textbf{byCombinedIsolationDeltaBetaCorrRaw3Hits} - Suma pędów cząstek naładowanych oraz fotonów wewnątrz stożka izolacji pomniejszona o~korektę $\Delta\beta$, zapisuje się wzorem:  $$I_{\tau} = \sum p_T^{\mathrm{charged}}(d_z < 0.2 \mathrm{cm}) + \mathrm{max}(0, \sum p^{\gamma}_T - \Delta\beta)$$.
+	\item \textbf{byCombinedIsolationDeltaBetaCorrRaw3Hits} - Suma pędów cząstek naładowanych oraz fotonów wewnątrz stożka izolacji pomniejszona o~korektę uwzględniającą wkład od cząstek pochodzących z dodatkowych zderzeń pp (ang. \textit{pileup}). Można zapisać ją wzorem:  $$I_{\tau} = \sum p_T^{\mathrm{charged}}(d_z < 0.2 \mathrm{cm}) + \mathrm{max}(0, \sum p^{\gamma}_T - \Delta\beta).$$
 	\item \textbf{chargedIsoPtSum} - Suma pędów naładowanych produktów rozpadu wewnątrz stożka sygnałowego.
 	\item \textbf{decayDistMag} - Odległość między zderzeniem $pp$ a~punktem, w~którym nastąpił rozpad taonu.
 	\item \textbf{decayMode} - Kanał rozpadu taonu.
 	\item \textbf{dxy} - Odległość między zderzeniem $pp$ a~punktem, w~którym nastąpił rozpad taonu w~rzucie na płaszczyznę prostopadłą do osi wiązki.
 	\item \textbf{dxy\_Sig} - Zmienna \textbf{dxy} podzielona przez niepewność pomiaru.
-	\item \textbf{eRatio} - Stosunek energii elektromagnetycznej do całkowitej energii całkowitej produktów rozpadu.
+	\item \textbf{eRatio} - Stosunek energii elektromagnetycznej do energii całkowitej produktów rozpadu.
 	\item \textbf{flightLengthSig} - Zmienna \textbf{decayDistMag} podzielona przez niepewność pomiaru. 
-	\item \textbf{gjAngleDiff} - Kąt między kierunkiem ruchu taonu oraz kierunkiem ruchu wiodącego produktu rozpadu.
+	\item \textbf{gjAngleDiff} - Kąt między kierunkiem ruchu taonu, oszacowanego na podstawie położenia wierzchołka rozpadu taonu, oraz kierunkiem ruchu wiodącego produktu rozpadu.
 	\item \textbf{hasSecondaryVertex} - Informacja czy rozpad posiada wierzchołek wtórny, którym może być rozpad taonu.
 	\item \textbf{ip3d} - Odległość między zderzeniem $pp$ a~najbliższym punktem na krzywej zakreślanej przez wiodący produkt rozpadu taonu.
 	\item \textbf{nPhoton} - Liczba protonów o~pędzie $p_T > 0.5$ GeV przypisana do rozpadu taonu.
-	\item \textbf{neutralIsoPtSum} - Suma pędów neutralnych produktów rozpadu wewnątrz stożka sygnałowego.
+	\item \textbf{neutralIsoPtSum} - Suma pędów neutralnych cząstek w stożku izolacyjnym rozpadu wewnątrz stożka sygnałowego.
 	\item \textbf{photonPtSumOutsideSignalCone} - Suma pędów fotonów poza stożkiem sygnałowym.
-	\item \textbf{ptWeightedDetaStrip} - Suma $\Delta\eta$ ważona pędami cząstek, gdzie $\Delta\eta$ to różnica $\eta$ między taonem a produktem rozpadu taonu.
-	\item \textbf{ptWeightedDphiStrip} - Suma $\Delta\phi$ ważona pędami cząstek, gdzie $\Delta\phi$ to różnica $\phi$ między taonem a produktem rozpadu taonu.
+	\item \textbf{ptWeightedDetaStrip} - Suma $\Delta\eta$ ważona pędami cząstek w stożku sygnałowym, gdzie $\Delta\eta$ to różnica $\eta$ między taonem a produktem rozpadu taonu.
+	\item \textbf{ptWeightedDphiStrip} - Suma $\Delta\phi$ ważona pędami cząstek w stożku sygnałowym, gdzie $\Delta\phi$ to różnica $\phi$ między taonem a produktem rozpadu taonu.
 	\item \textbf{ptWeightedDrIsolation} - Suma $\Delta R$ ważona pędami cząstek wewnątrz stożka izolacji, gdzie $\Delta R = \sqrt{(\Delta\eta)^2 + (\Delta\phi)^2}$.
 	\item \textbf{ptWeightedDrSignal} - Suma $\Delta R$ ważona pędami cząstek wewnątrz stożka sygnałowego.
-	\item \textbf{puCorrPtSum} - Suma pędów cząstek neutralnych znajdujących się wewnątrz stożka sygnałowego, ale pochodząca z~innych rozpadów.
+	\item \textbf{puCorrPtSum} - Oszacowanie sumy pędów cząstek neutralnych znajdujących się wewnątrz stożka sygnałowego, ale pochodząca z~innych zderzeń pp.
 	\end{itemize}
 	
 	Dodatkowo dane zawierają 4 zmienne będące odpowiedziami wcześniej wykorzystywanych klasyfikatorów do identyfikacji taonów:
@@ -266,8 +266,8 @@ Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=1\textwidth]{difference_gjAngleDiff.png}
-	\caption{gjAngleDiff}
+	\includegraphics[width=1\textwidth]{difference_hasSecondaryVertex.png}
+	\caption{hasSecondaryVertex}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 	\centering
@@ -281,19 +281,19 @@ Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne
 		
     \chapter{Architektura modeli}
 	Aby dokonywać klasyfikacji sygnału zastosowano różne modele predykcyjne opierające się na metodach opisanych w~rozdziale \ref{ch:wstep}. Modele zostały zaimplementowane w~języku \textit{python} z~wykorzystaniem bibliotek \textit{keras} oraz \textit{xgboost}. Kod jest dostępny w~repozytorium: \url{https://github.com/byrolew/licencjat}.
-	\section{Model oparty o same klasyfikatory}
+	\section{Model \textit{ensemble}}
 	\label{sec:mod1}
-	Prosty model, składający się z~jednego neuronu, który przyjmuje jako zmienne objaśniające odpowiedzi wcześniej używanych klasyfikatorów (patrz rozdział \ref{ch:dane}). Jest to więc średnia ważona odpowiedzi klasyfikatorów, na którą nałożona jest funkcja sigmoid. Wielkość batcha została ustalona na 128, do optymalizacji został użyty algorytm \textit{Adam} ze stałą uczenia $\gamma = 10^{-3}$. Model uczony był przez cztery epoki. Później używana jest nazwa \textit{ensemble}.
-
-	\section{Sieć neuronowa}
-	\label{sec:mod2}
-	Kolejny model był oparty o wszystkie zmienne objaśniające, jego architekturę przedstawiono na rysunku \ref{fig:nn1}. Składał się z~sześciu warstw gęstych, o~wielkości 32 neuronów każda. Jako funkcje aktywacji zastosowano funkcje ReLU. Warstwę wyjściową tworzy jeden neuron z sigmoidem jako funkcją aktywacji. Dzięki temu wyjściem sieci jest pojedyncza wartość z zakresu [0, 1]. Inne parametry zostały ustalone tak samo jak dla modelu w sekcji \ref{sec:mod1}. Ten model zwany jest później jako \textit{baseline}.
+	Prosty model, składający się z~jednego neuronu, który przyjmuje jako zmienne objaśniające odpowiedzi wcześniej używanych klasyfikatorów (patrz rozdział \ref{ch:dane}). Jest to więc średnia ważona odpowiedzi klasyfikatorów, na którą nałożona jest funkcja sigmoid. Wielkość batcha została ustalona na 128, do optymalizacji został użyty algorytm \textit{Adam} ze stałą uczenia $\gamma = 10^{-3}$. Model uczony był przez cztery epoki. 
 	
-	\section{Poprawiona sieć neuronowa}
+	\section{Model \textit{baseline}}
+	\label{sec:mod2}
+	Kolejny model był oparty o wszystkie zmienne objaśniające, jego architekturę przedstawiono na rysunku \ref{fig:nn1}. Składał się z~sześciu warstw gęstych, o~wielkości 32 neuronów każda. Jako funkcję aktywacji zastosowano funkcję ReLU. Warstwę wyjściową tworzy jeden neuron z sigmoidem jako funkcją aktywacji. Dzięki temu wyjściem sieci jest pojedyncza wartość z zakresu [0, 1]. Inne parametry zostały ustalone tak samo jak dla modelu w sekcji \ref{sec:mod1}.
+	
+	\section{Model \textit{best-nn}}
 	Na podstawie optymalizacji hiperparametrów przy pomocy losowego przeszukiwania został wybrany najlepszy model oparty o gęste sieci neuronowe. Optymalizowano parametry takie jak: wielkość batcha, stała uczenia, wielkość i~liczba warstw ukrytych, funkcja aktywacji, liczba epok, występowanie warstwy \textit{batch normalization} i~występowanie harmonogramu stałej uczenia. Otrzymana architektura znajduje się na rysunku \ref{fig:nn2}. 
 	
-	Wybrany model ma dwie warstwy gęste po 256 neuronów każda, zatem widać że model jest płytszy i szerszy niż opisany w sekcji \ref{sec:mod2}. Jako funkcja aktywacji jest tutaj użyty sigmoid, a~dodatkowo zastosowana jest warstwa \textit{batch normalization}. Użyta wielkość batcha to 256, do optymalizacji zastosowano algorytm \textit{Adam} ze stałą uczenia $\gamma = 5\cdot 10^{-4}$ oraz harmonogram zmniejszający stałą uczenia $\gamma$ na wypłaszczeniu funkcji straty przez czynnik 0.2 do minimalnej wartości $\gamma = 10^{-5}$. Model był uczony przez sześć epok. Ten model zwany jest później jako \textit{best-nn}.
-
+	Wybrany model ma dwie warstwy gęste po 256 neuronów każda, zatem widać że model jest płytszy i szerszy niż opisany w sekcji \ref{sec:mod2}. Jako funkcja aktywacji jest tutaj użyty sigmoid, a~dodatkowo zastosowana jest warstwa \textit{batch normalization}. Użyta wielkość batcha to 256, do optymalizacji zastosowano algorytm \textit{Adam} ze stałą uczenia $\gamma = 5\cdot 10^{-4}$ oraz harmonogram zmniejszający stałą uczenia $\gamma$ na wypłaszczeniu funkcji straty przez czynnik 0.2 do minimalnej wartości $\gamma = 10^{-5}$. Model był uczony przez sześć epok.
+	
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{neural_net.pdf}
@@ -402,14 +402,14 @@ Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne
 	\includegraphics[width=1\textwidth]{loss_xgb.png}
 	\caption{\textit{XGBoost}}
 	\end{subfigure}
-	\caption{Zmiana wartości funkcji straty liczona na zbiorze testowym dla wszystkich modeli. Dla modeli opartych o sieci neuronowe, na osi x~znajduje się liczba obserwacji, a~dla \textit{XGBoosta} liczba dopasowanych drzew. Modele \textit{ensemble}, \textit{baseline} oraz \textit{XGBoost} uczone były na pełnych danych.}
+	\caption{Zmiana wartości funkcji straty liczona na zbiorze testowym dla wszystkich modeli. Dla modeli opartych o sieci neuronowe, na osi x~znajduje się liczba obserwacji, a~dla \textit{XGBoosta} liczba dopasowanych drzew. Jaśniejsze linie odpowiadają wartości funkcji straty uśrednionej po 10 batchach, a ciemniejsze po 200 batchach. Modele \textit{ensemble}, \textit{baseline} oraz \textit{XGBoost} uczone były na pełnych danych.}
 	\label{fig:loss}
 	\end{figure}	
 	
 	\begin{figure}
 	\centering
 	\includegraphics[width=1.\textwidth]{loss_all.png}
-	\caption{Zmiana wartości funkcji straty od liczby obserwacji liczona na zbiorze testowym dla wszystkich modeli opartych o sieci neuronowe.}
+	\caption{Zmiana wartości funkcji straty od liczby obserwacji liczona na zbiorze testowym dla wszystkich modeli opartych o sieci neuronowe. Jaśniejsze linie odpowiadają wartości funkcji straty uśrednionej po 10 batchach, a ciemniejsze po 200 batchach.}
 	\label{fig:loss_all}
 	\end{figure}	
 	%\newpage
@@ -458,6 +458,6 @@ Dane są wstępnie przetwarzane tak, aby pozostawić tylko najbardziej potrzebne
 	W~pracy przedstawiono problem detekcji leptonów $\tau$ przy pomocy modeli uczenia maszynowego. Wprowadzono dwie klasy modeli, sieci neuronowe oraz modele oparte o drzewa decyzyjne. Sprawdzono ich skuteczność oraz porównano ze wcześniej stosowanymi klasyfikatorami. Okazało się, że model oparty na drzewach decyzyjnych (\textit{XGBoost}) osiągnął najlepsze rezultaty. W~szczególności wszystkie modele uczone na pełnych danych okazały się lepsze niż wcześniej używane klasyfikatory.
     
     \addcontentsline{toc}{chapter}{Bibliografia}
-    \printbibliography
+    \printbibliography[title={Bibliografia}]
     
 \end{document}
